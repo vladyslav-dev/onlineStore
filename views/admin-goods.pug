@@ -1,0 +1,39 @@
+section(class="admin__goods")
+    div(class="container-content")
+        div(class="section__header")
+            div(class="search__block")
+                input(type="text" id="search-inp" class="search__inp" placeholder="Найти товар")
+                button(class="search_btn") Search
+        each categor, index in category
+            span(class="category__name") #{categor['category-name']}
+            div
+                each subcategor, index in subcategory
+                    if (subcategor['category'] == categor['id'])
+                        div(class="subcategory__name") #{subcategor['subcategory-name']}
+                        div(class="subcategory__block")
+                            each good, index in goods
+                                if (good['subcategory'] == subcategor['id'])
+                                    div(class="good__block")
+                                        a(href=`/api/admin-page/changer?id=${good['id']}`)
+                                            div(class="good__block-content") 
+                                                div(class="good__image")
+                                                    img(src=`../../images/goods-img/${good['image']}`, alt="Изображение не найдено")
+                                                div(class="good__info")
+                                                    div(class="good__info-name")
+                                                        span(class="good__info-label") Название: 
+                                                        span(class="good__info-text" id=`${good['id']}`) #{good['name']}
+                                                    div(class="good__info-cost")
+                                                        span(class="good__info-label") Стоимость: 
+                                                        span #{good['cost']} грн
+                                                    div(class="good__info-availability")
+                                                        span(class="good__info-label") В наличии: 
+                                                        if (good['availability'])
+                                                            span(class="allowed") В наличии
+                                                        else
+                                                            span(class="notAllowed") Нет в наличии
+                                                    div(class="good__info-id")
+                                                        span(class="good__info-label") id: 
+                                                        span #{good['id']}
+div(class="go-up")
+    a(href="#home")
+        img(src="../../images/arrow.png")

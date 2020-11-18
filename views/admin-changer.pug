@@ -1,0 +1,36 @@
+
+include admin-header
+div(class='wrap')
+    div(class="change__container")
+        img(
+            src="../../images/goods-img"+goods[0]['image']
+            class='product-img'
+        )
+        div(class='goods__info')
+            div(class='product-name') Название: #{goods[0]['name']}
+            div(class='product-description') Описание: #{goods[0]['description']}
+            div(class='product-price') Цена: #{goods[0]['cost']} ₴   
+            div(class='product-available') Наличие: #{goods[0]['availability']}
+            div(class='product-name') Путь изображения: #{goods[0]['image']}
+        div(class='make__change')
+            div(class="make__change-title") Сделать изменения
+            form(class="make__change-content" action="/api/admin-page/changer" method="post")
+                div(class="input__item")
+                    label NEW Название:
+                    input(type="text" name="name" autocomplete="off")
+                div(class="input__item")
+                    label NEW Описание:
+                    textarea(type="text" name="description" autocomplete="off")
+                div(class="input__item")
+                    label NEW Цена:
+                    input(type="text" name="cost" autocomplete="off")
+                div(class="input__item input__item-radio")
+                    label(for="available") NEW В наличии:
+                    input(type="radio" name="availability" value="true" id="available")
+                div(class="input__item input__item-radio")
+                    label(for="unavailable") NEW Нет в наличии:
+                    input(type="radio" name="availability" value="false" id="unavailable")
+                    input(type="radio" name=`id` checked="checked" value=`${goods[0]['id']}` hidden="hidden")
+                div(class="input__item input__item-radio")
+                    input(type="submit" value="Сохранить")
+

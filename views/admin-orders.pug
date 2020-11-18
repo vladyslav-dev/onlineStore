@@ -1,0 +1,80 @@
+include admin-header
+section(class="orders")
+    div(class="order__header-title") Заказы
+    div(class="order__content")
+        div(class="orders__container")
+            div(class="orders__content-unconfirmed")
+                div(class="orders__content-title red") НЕПОДТВЕРЖДЕННЫЕ
+                div(class="orders__content-list")
+                    each user in users
+                        if (user['confirmed'] == false && user['success'] == false)
+                            div(class="orders__content-item")
+                                div(class="order__item-info")
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Номер заказа: 
+                                        span(class="order__item-info-block-text") #{user['user_id']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") На кого: 
+                                        span(class="order__item-info-block-text") #{user['fullName']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Телефон: 
+                                        span(class="order__item-info-block-text") #{user['phone']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Дата/Время заказа: 
+                                        span(class="order__item-info-block-text") #{user['date']}
+                                div(class="order__item-status")
+                                    span СТАТУС
+                                    img(src="../../images/admin-warning.svg" alt="Изображение не найдено")
+            div(class="orders__content-waiting")
+                div(class="orders__content-title yellow") В ПРОЦЕССЕ
+                div(class="orders__content-list")
+                    each user in users
+                        if (user['confirmed'] == true && user['success'] == false)
+                            div(class="orders__content-item")
+                                div(class="order__item-info")
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Номер заказа: 
+                                        span(class="order__item-info-block-text") #{user['user_id']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") На кого: 
+                                        span(class="order__item-info-block-text") #{user['fullName']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Телефон: 
+                                        span(class="order__item-info-block-text") #{user['phone']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Дата/Время заказа: 
+                                        span(class="order__item-info-block-text") #{user['date']}
+                                div(class="order__item-status")
+                                    span СТАТУС
+                                    img(src="../../images/admin-wait.svg" alt="Изображение не найдено")
+            div(class="orders__content-confirmed")
+                div(class="orders__content-title green") ВЫПОЛНЕНЫЕ
+                div(class="orders__content-list")
+                    each user in users
+                        if (user['confirmed'] == true && user['success'] == true)
+                            div(class="orders__content-item")
+                                div(class="order__item-info")
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Номер заказа: 
+                                        span(class="order__item-info-block-text") #{user['user_id']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") На кого: 
+                                        span(class="order__item-info-block-text") #{user['fullName']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Телефон: 
+                                        span(class="order__item-info-block-text") #{user['phone']}
+                                    div(class="order__item-info-block")
+                                        span(class="order__item-info-block-label") Дата/Время заказа: 
+                                        span(class="order__item-info-block-text") #{user['date']}
+                                div(class="order__item-status")
+                                    span СТАТУС
+                                    img(src="../../images/admin-okay.svg" alt="Изображение не найдено")
+div(class="go-up")
+    a(href="#home")
+        img(src="../../images/arrow.png")
+div(class="modal-window")
+div(class="modal-content")
+script(src="../../js/admin/admin-order.js")
+
+
+        

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+@font-face {
+	font-family: 'STSEV851-78';
+	src: url('../fonts/STSEV851-78.eot');
+	src: local('☺'), url('../fonts/STSEV851-78.woff') format('woff'), url('../fonts/STSEV851-78.ttf') format('truetype'), url('../fonts/STSEV851-78.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Dreamcast';
+	src: url('../fonts/Dreamcast.eot');
+	src: local('☺'), url('../fonts/Dreamcast.woff') format('woff'), url('../fonts/Dreamcast.ttf') format('truetype'), url('../fonts/Dreamcast.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Century-Gothic';
+	src: local('☺'), url('../fonts/Century-Gothic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Mont-ExtraLight';
+	src: url('../fonts/MontDemo-ExtraLight.eot');
+	src: local('☺'), url('../fonts/MontDemo-ExtraLight.woff') format('woff'), url('../fonts/MontDemo-ExtraLight.ttf') format('truetype'), url('../fonts/MontDemo-ExtraLight.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

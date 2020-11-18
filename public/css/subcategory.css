@@ -1,0 +1,123 @@
+.subcategory__container {
+    max-width: 1700px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.subcategory__header-bottom {
+  margin-top: 105px;
+}
+
+.subcategory__flex-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.subcategory__content-block {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 19%));
+    justify-content: space-around;
+    grid-row-gap: 25px;
+    grid-column-gap: 7px;
+}
+
+.subcategory__header-bottom {
+  font-family: 'Roboto';
+  font-size: 13px;
+  color: rgb(97, 97, 97);
+}
+
+.subcategory__navigation-all {
+  display: flex;
+}
+
+.subcategory__navigation-all li {
+  margin-right: 12px;
+}
+
+.subcategory__navigation-all li a {
+  color: #a5a5a5;
+}
+
+.subcategory__navigation-all li a:after {
+  content: '→';
+  font-family: auto;
+  font-size: 20px;
+  margin-left: 12px;
+  vertical-align: -2px;
+}
+
+.subcategory__navigation-all li:last-child a:after {
+  content: '';
+  color: red;
+  
+}
+
+.subcategory__navigation-all li:last-child a {
+  vertical-align: -5px;
+}
+
+.subcategory__shower {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1500px) {
+
+  .subcategory__content-block {
+    grid-template-columns: repeat(auto-fill, minmax(auto, 23%));
+  }
+
+}
+
+
+@media (max-width: 1100px) {
+
+  .subcategory__content-block {
+    grid-template-columns: repeat(auto-fill, minmax(auto, 23%));
+  }
+
+  .cart-name {
+    font-size: 13px;
+  }
+
+  .cart-price {
+    font-size: 14px;
+    margin: 28px 0 10px 0;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .subcategory__content-block {
+    grid-template-columns: repeat(auto-fill, minmax(auto, 32%));
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .subcategory__content-block {
+    grid-template-columns: repeat(auto-fill, minmax(auto, 48%));
+  }
+
+  .cart-name {
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .subcategory__navigation-all li a:after {
+    vertical-align: 1px;
+  }
+
+  .subcategory__navigation-all li:last-child a {
+    vertical-align: -7px;
+  }
+
+}
+

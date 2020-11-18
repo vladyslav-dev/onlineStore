@@ -1,0 +1,72 @@
+html    
+    head
+        meta(name="description" content="Интернет магазин Vinoro (Товары из Европы). В ассортименте Продукты питания, Алкоголь, Бытовая химия. Приятные цены. Доставка по Украние")
+        meta(name="keywords" content="vinoro, продукты, алкгоголь, товары из европы, запорожье, доставка, бытовая химия, цены, цена, купить")
+        title Vinoro (Товары из Европы) — Лучшие европейские товары
+        include header-links
+    body
+    div(class="wrap")
+        include header-nav
+        header(class="header")
+            div(class="header-logo")
+                h1 VINORO
+        section(class='slider-top')
+            div(class="slider")
+                div(class="slider-item" style="background-image: url(../images/111.jpg)")
+                div(class="slider-item" style="background-image: url(../images/222.jpg)")
+                div(class="slider-item" style="background-image: url(../images/333.jpg)")
+        div(class="arrow-down")
+            a(href="#to-category")    
+                img(src="./images/arrow-down.png", alt="")
+        section(class="section")
+            div(class="section__container" id='to-category')
+                div(class="content__category")
+                    div(class="content__category-image")
+                        a(href="/category?id=0")
+                            img(src="./images/category-0.jpg")
+                    div(class="content__category-text")
+                        ul(class="content__category-list")
+                            each val1, index in subcategory
+                                if val1['category'] == 0
+                                    li 
+                                        a(href='/subcategory?id='+val1['id']) #{val1['subcategory-name']}
+                        div(class="content__category-more")
+                            a(href="/category?id=0") Глянуть
+                div(class="content__category")
+                    div(class="content__category-text")
+                        ul(class="content__category-list")
+                            each val1, index in subcategory
+                                if val1['category'] == 1
+                                    li 
+                                        a(href='/subcategory?id='+val1['id']) #{val1['subcategory-name']}
+                        div(class="content__category-more")
+                            a(href="/category?id=1") Глянуть
+                    div(class="content__category-image")
+                        a(href="/category?id=1")
+                            img(src="./images/category-1.jpg")
+                div(class="content__category")
+                    div(class="content__category-image")
+                        a(href="/category?id=2")
+                            img(src="./images/category-2.jpg")
+                    div(class="content__category-text")
+                        ul(class="content__category-list")
+                            each val1, index in subcategory
+                                if val1['category'] == 2
+                                    li 
+                                        a(href='/subcategory?id='+val1['id']) #{val1['subcategory-name']}
+                        div(class="content__category-more")
+                            a(href="/category?id=2") Глянуть
+                    //- section(class="section")
+                    //-     div(class="section__container")
+                    //-         div(class="section__content-header") Популярные товары
+                    //-         div(class="section__content-carts slider-cart")
+                    //-             each val, index in bestgoods
+                    //-                 div(class="slider-cart-item")
+                    //-                     include cart
+                    //-         div(class="section__content-button")
+                    //-             a(href="#to-category") За покупками
+
+        include footer
+
+
+// bug fixed header_row when click on cart

@@ -1,0 +1,46 @@
+html    
+    head
+        meta(name="description" content="Интернет магазин Vinoro (Товары из Европы). В ассортименте Продукты питания, Алкоголь, Бытовая химия. Приятные цены. Доставка по Украние")
+        meta(name="keywords" content="vinoro, продукты, алкгоголь, товары из европы, запорожье, доставка, бытовая химия, цены, цена, купить")
+        title Интернет-магазин Vinoro — #{goods[0]['name']}
+        include header-links
+    body
+        div(class='wrap')
+            div(class="under-header")   
+            include header-nav
+            section(class="goods")
+                div(class='goods__container')
+                    div(class='goods__content')
+                        div(class='goods__image zoom' id='ex1')
+                            img(
+                                src="images/goods-img"+goods[0]['image']
+                                class='product-img'
+                            )
+                        div(class='goods__info')
+                            h2(class='product-title') #{goods[0]['name']}
+                            span(class='product-price') #{goods[0]['cost']} ₴    
+                            div(class='product-about')
+                                if goods[0]['availability'] == "true"           
+                                    div(class="available") Есть в наличии &#10004;
+                                if goods[0]['availability'] == "false"           
+                                    div(class="available" style="color: red") Нет в наличии &#10008;
+
+                                div(class='goods__info-buttons')
+                                    
+                                    div(
+                                        class='product-button'
+                                        data-goods_id=goods[0]['id']
+                                    ) В корзину
+                                    div(
+                                        class='heart-button'
+                                        data-goods_heart_id=goods[0]['id']
+                                        ) Добавить в избранное
+                                        
+                                
+                                span(class='goods-link' id="good-link") Копировать ссылку на продукт&#8194;
+                                    img(src="./images/link-icon.png")
+                                pre(class="goods__descr") #{goods[0]['description']}
+            div(class="modal__content-link")
+                div(class="modal-link") Ссылка скопирована 
+        include footer
+          

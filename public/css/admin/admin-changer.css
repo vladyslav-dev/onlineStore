@@ -1,0 +1,68 @@
+.wrap {
+    margin-top: 105px;
+}
+
+.change__container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.product-img {
+    width: 230px;
+}
+
+.goods__info > div {
+    margin-bottom: 10px;
+    font-family : "Roboto", sans-serif;
+    border-bottom: 1px solid #ccc;
+    padding: 9px 15px;
+}
+
+/*  make change */
+
+.make__change {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 50px 0;
+    padding: 20px 15px;
+}
+
+.make__change-title {
+    text-align: center;
+    font-size: 19px;
+    font-family: "Roboto", sans-serif;
+}
+
+.make__change-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input__item {
+    width: 290px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+.input__item-radio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input__item label {
+    padding-bottom: 8px;
+}
+
+.input__item-radio label {
+    margin-right: 10px;
+    padding: 0;
+}
+
+.input__item-radio input {
+  
+}

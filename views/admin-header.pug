@@ -1,0 +1,57 @@
+html    
+    head
+        meta(charset='utf8')
+        meta(
+            name='viewport'
+            content='width=device-width, initial-scale=1.0'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/reset.css'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/fonts.css'
+        )
+        link(
+            rel="shortcut icon"
+            href="../../images/favicon.ico"
+            type="image/x-icon"
+            )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin.css'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin-header.css'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin-goods.css'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin-changer.css'
+        )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin-orders.css'
+        )
+        script( defer src="../../js/admin/admin.js")
+        title Admin panel
+    body(id="home")
+        header(class="header")
+            div(class="container")
+                div(class="header__logo")
+                    img(src="../../images/logo-white.png", alt="", srcset="")
+                    span admin
+                div(class="header__burger")
+                    span
+                div(class="header__menu-back")
+                div(class="header__menu")
+                    div(class="header__list header__list-general")
+                        a(href="/api/admin-page/dashboard" class="header__list-link") Все товары
+                        a(href="/api/admin-page/orders" class="header__list-link") Заказы
+                        a(href="/" class="header__list-link") Главная страница
+                        a(href="/api/admin-page/logout" class="header__list-link header__menu-bottom") Выйти

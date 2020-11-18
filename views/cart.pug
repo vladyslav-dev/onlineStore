@@ -1,0 +1,16 @@
+div(class="cart")
+    a(href="/goods?id="+val['id'])
+        div(class="cart-content")
+            img(
+                src='images/goods-img'+val['image'],
+                class="cart-img",
+                alt="Фото данного товара отсутствует"
+                )
+            p(class="cart-name") #{val['name']}
+            p(class="cart-price") #{val['cost']} грн
+        div(class="to-cart")
+            p Смотреть товар
+
+            
+            
+            

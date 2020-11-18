@@ -1,0 +1,30 @@
+html    
+    head
+        meta(name="description" content="Интернет магазин Vinoro (Товары из Европы). В ассортименте Продукты питания, Алкоголь, Бытовая химия. Приятные цены. Доставка по Украние")
+        meta(name="keywords" content="vinoro, продукты, алкгоголь, товары из европы, запорожье, доставка, бытовая химия, цены, цена, купить")
+        title Интернет-магазин Vinoro — #{subcategory[0]['subcategory-name']}
+        include header-links
+    body
+        div(class="wrap")
+            include header-nav
+            div(class="subcategory__container")
+                div(class="subcategory__header-bottom")
+                    ul(class="subcategory__navigation-all")
+                        li
+                            a(href="/") Главная
+                        li  
+                            each v, index in category 
+                                if (category[index]['id'] == subcategory[0]['category'])
+                                    a(href="/category?id="+category[index]['id']) #{category[index]['category-name']}
+                        li
+                            a(href="/subcategory?id="+subcategory[0]['id']) #{subcategory[0]['subcategory-name']}
+
+            div(class="subcategory__container")
+                div(class="subcategory__flex-block")
+                    div(class="subcategory__content-block")
+                        each val, index in goods
+                            if goods[0]['subcategory'] == subcategory[0]['id']
+                                div(class="subcategory__cart-item")
+                                    include cart
+            div(style="display:none" id='subcategoryId-value') #{subcategoryId} 
+            include footer

@@ -1,0 +1,50 @@
+.contact__container {
+    /* border: 1px solid black; */
+    max-width: 1000px;
+    margin: 105px auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-block {
+    min-height: 380px;
+    border-top: 3px solid black;
+    padding: 50px;
+}
+
+.contact-block:first-child {
+    border-right: 3px solid black;
+}
+
+.contact-block h1 {
+    font-family: 'Century-Gothic', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 19px;
+}
+
+.contact__info-block {
+    font-family: "Roboto", sans-serif;
+}
+
+
+.contact__info-label {
+    text-decoration: underline;
+    color: #757575;;
+    margin-right: 6px;
+    font-family: 'Century-Gothic', sans-serif;
+}
+
+.contact__info-text {
+    margin-bottom: 25px;
+    color: rgb(37, 37, 37);
+}
+
+.contact__info-text {
+
+}
+
+.contact__info-phone {
+    margin: 15px 0;
+}

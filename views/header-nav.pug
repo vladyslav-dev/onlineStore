@@ -1,0 +1,39 @@
+div(class="header__row")
+    div(class="container__row")
+        div(class="header__icons")
+            div(class="header__burger")
+                span
+            div(class="header__menu-back")
+            div(class="header__menu")
+                div(class='arrow-back')
+                    img(src="./images/arrow-back-white.png")
+                div(class="header__list header__list-general")
+                    a(class="header__list-link" href="/") Главная
+                    a(class="header__list-link categor-more-icon") Каталог товаров
+                        img(src="./images/play-white.png" class="play-white")
+                        img(src="./images/play.png" class="play-black")
+                    //- a(class="header__list-link" href="#") Все товары
+                    a(class="header__list-link" href="/contacts") Контакты
+                div(class="header__list header__list-select")
+                    a(class="header__list-link" href="/category?id=0") Продукты питания
+                    a(class="header__list-link" href="/category?id=1") Алкоголь
+                    a(class="header__list-link" href="/category?id=2") Бытовая химия
+                div(class="header__menu-bottom") Все права защищены - 2020
+            div(class="header__search")
+                input(type="text" class="inp-search" placeholder="Найти товар")
+                img(src="./images/search-white.svg", alt="" class="header__icons-img")
+        div(class="logo")
+            img(src="./images/logo.png")
+        div(class="header__icons header__icons-right")
+            div(class="header__icons-heart")
+                a(href="/favorite")
+                    img(src="./images/heart-white.svg" id="heart" alt="" class="header__icons-img")
+            div(class="header__icons-cart")
+                img(src="./images/bag-white.svg", class="cartImg header__icons-img" id="cart" alt="")
+                div(class="products__count-number") 
+        div(class="close-cart")
+            img(src="./images/close-icon.png")    
+div(class="cart__modal")
+div(class='cart__block')
+
+

@@ -196,7 +196,7 @@ function showCart(data) {
         products__count_number.classList.add('active');
         content += `<div class="order-info-block">
                         <div class="total">Итого: ${total} грн</div>
-                        <div class="order-all"><a href='/order'>Оформить заказ</a></div>
+                        <a href='/order' class="order-all">Оформить заказ</a>
                     </div>`;
 
     } else {

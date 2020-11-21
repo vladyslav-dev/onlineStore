@@ -496,11 +496,10 @@ a {
     background-color: #1d1d1d;
     cursor: pointer;
     margin: 50px 0;
-}
-
-.order-all a {
     color: white;
 }
+
+
 
 .cart-empty {
     text-align: center;

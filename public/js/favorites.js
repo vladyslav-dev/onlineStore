@@ -1,5 +1,9 @@
 let favorites = {};
 
+if (window.location.pathname == '/favorite') {
+    document.querySelector('.under-header').style.backgroundColor = '#1d1d1d';
+}
+
 document.querySelectorAll('.to-heart-icon').forEach( item => {
     item.onclick = addToHeart;
 });

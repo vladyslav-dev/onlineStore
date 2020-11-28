@@ -18,7 +18,7 @@ let cart_modal = document.querySelector('.cart__modal');
 let cartIcon = document.querySelector('#cart');
 let close_cart = document.querySelector('.close-cart');
 let products__count_number = document.querySelector('.products__count-number');
-let body = document.getElementsByTagName('body');
+let body = document.getElementsByTagName('body')[0];
 let mainLogo = document.querySelector('.logo');
 let _ButtonAddToCart = document.querySelector('.product-button');
 
@@ -98,14 +98,14 @@ function getGoodsInfo() {
 
 if (window.location.pathname !== '/order') {
 
-    cartIcon.addEventListener('click', () => {
+    cartIcon.addEventListener('click', () => {  // click on cart icon
 
         cart_modal.classList.add('active');
         cart_block.classList.add('active');
         mainLogo.style.marginLeft = '0';
         header_row.classList.add('active');
         close_cart.classList.add('active');
-        body[0].classList.add('active');
+        body.classList.add('active');
 
         for (let i = 0; i < header_icons.length; i++) {
             header_icons[i].style.display = 'none';
@@ -117,48 +117,44 @@ if (window.location.pathname !== '/order') {
         }
     });
 
-    close_cart.addEventListener('click', () => {
+    close_cart.addEventListener('click', () => {  // closing the cart
 
-            cart_block.classList.remove('active');
-            cart_modal.classList.remove('active');      
-            close_cart.classList.remove('active');
-            body[0].classList.remove('active');
-            mainLogo.style.marginLeft = '-45px';
-
-            for (let i = 0; i < header_icons.length; i++) {
-                header_icons[i].style.display = 'flex';
-            }
-            
-            if(header_row.className == 'header__row active' && window.scrollY < 50) {
-                header_row.classList.remove('active');
-            }    
+        if ( (window.location.pathname === '/' || window.location.pathname === '/category' || window.location.pathname === '/favorite') && window.scrollY < 50) {
+            header_row.classList.remove('active');
+        } else {
+            header_row.classList.add('active'); 
+        }
+        cart_block.classList.remove('active');
+        cart_modal.classList.remove('active');      
+        close_cart.classList.remove('active');
+        body.classList.remove('active');
+        mainLogo.style.marginLeft = '-45px';
+        header_icons.forEach( item => item.style.display = 'flex');       
     });
 
-    cart_modal.addEventListener('click', () => {
-            cart_block.classList.remove('active');
-            cart_modal.classList.remove('active');    
-            close_cart.classList.remove('active');
-            body[0].classList.remove('active');
-            mainLogo.style.marginLeft = '-45px';
+    cart_modal.addEventListener('click', () => {  // close modal-window
 
-            for (let i = 0; i < header_icons.length; i++) {
-                header_icons[i].style.display = 'flex';
-            }
-
-            if(header_row.className == 'header__row active' && window.scrollY < 50) {
-                header_row.classList.remove('active');
-            }          
+        if ( (window.location.pathname === '/' || window.location.pathname === '/category' || window.location.pathname === '/favorite') && window.scrollY < 50) {
+            header_row.classList.remove('active');
+        } else {
+            header_row.classList.add('active'); 
+        }
+        cart_block.classList.remove('active');
+        cart_modal.classList.remove('active');    
+        close_cart.classList.remove('active');
+        body.classList.remove('active');
+        mainLogo.style.marginLeft = '-45px';
+        header_icons.forEach( item => item.style.display = 'flex');                     
     });
 }
 
-function showCart(data) {
+function showCart(data) { 
 
     let content = `<div class="cart__header">КОРЗИНА</div>`;
     let total = 0;
     let sumElements = 0;
 
     for (let key in cart) {
-
         content +=  `<div class='cart__row'>
                         <h1><a href='/goods?id=${key}'>${data[key]['name']}</a></h1>
                         <div class="flex-content">
@@ -192,7 +188,7 @@ function showCart(data) {
         total += data[key]['cost']*cart[key];   
     }
 
-    if (sumElements > 0) {
+    if (sumElements > 0) { // adding total cost
         products__count_number.classList.add('active');
         content += `<div class="order-info-block">
                         <div class="total">Итого: ${total} грн</div>
@@ -205,7 +201,7 @@ function showCart(data) {
         cart_modal.classList.remove('active');
         header_row.classList.remove('active');
         close_cart.classList.remove('active');
-        body[0].classList.remove('active');  
+        body.classList.remove('active');  
 
         for (let i = 0; i < header_icons.length; i++) {
             header_icons[i].style.display = 'flex';
@@ -267,8 +263,6 @@ function updateLocalStorageCart() {
 
 function showOrder(data) {
 
-        console.log(cart);
-
         let innerContent = document.querySelector('.innerContent');
         let total = 0;
         let content = ``;
@@ -308,12 +302,12 @@ if (window.location.pathname == '/goods') {
 
             modal_link.classList.add('active');
             modal__content_link.classList.add('active');
-            body[0].classList.add('active');
+            body.classList.add('active');
         
             setTimeout( function() {
                 modal_link.classList.remove('active');
                 modal__content_link.classList.remove('active');
-                body[0].classList.remove('active');
+                body.classList.remove('active');
             }, 2000);
         
             let tempInput = document.createElement('textarea');

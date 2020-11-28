@@ -91,23 +91,23 @@ if (window.location.pathname == '/order') {
 
         radios1.forEach(item => {
             if(item.checked) {
-                console.log(item.value);
-                postName = item.value;
+                postName = item.value || 'Данные не указаны';
             }
         })
 
         radios2.forEach(item => {
             if(item.checked) {
-                console.log(item.value);
-                paymentMethod = item.value;
+                paymentMethod = item.value || 'Данные не указаны';
             }
         })
 
-        if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined || post == undefined || postName == undefined || paymentMethod == undefined) {
+        if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined) {
             console.log('canceled');
             document.querySelectorAll('.order__warning')[0].style.display = 'block';
             return false;
-        } 
+        } else {
+            document.querySelectorAll('.order__warning')[0].style.display = 'none';
+        }
 
         const orderId = `#${Date.now()}`;
         
@@ -195,7 +195,7 @@ if (window.location.pathname == '/order') {
                     fillWrong(inp);
                 };
                     break;
-                case 'post' : post = inp.value.trim();      
+                case 'post' : post = inp.value.trim() || 'Данные не указаны';      
                     break;
             }
         }

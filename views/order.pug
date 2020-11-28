@@ -45,7 +45,7 @@ html
                         div(class="order__post")
                             div(class="order__post-img-section")
                                 div(class="order__post-image")
-                                    input(type="radio" id="radio_1" name="radio-group" checked value="Нова Пошта")
+                                    input(type="radio" id="radio_1" name="radio-group" value="Нова Пошта")
                                     label(for="radio_1")
                                         img(src="./images/newPost.png")
                                         p Выбрано
@@ -55,11 +55,11 @@ html
                                         img(src="./images/deliver.png")
                                         p Выбрано
                             div(class="order__forms-input order__post-input")
-                                input(type="text" id="post" name="post" onchange="checkInput(this)" required)
+                                input(type="text" id="post" name="post" onchange="checkInput(this)")
                                 label Адресс и номер отделения
                             div(class="order__pay-block")
                                 div(class="order__pay-item")
-                                    input(type="radio" id="radio_3" name="radio-group2"  value="Оплата сейчас на карту")
+                                    input(type="radio" id="radio_3" name="radio-group2" value="Оплата сейчас на карту")
                                     label(for="radio_3" class="order__pay-label")
                                         p Оплата сейчас на карту
                                 div(class="order__pay-item")

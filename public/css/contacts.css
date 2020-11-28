@@ -11,6 +11,7 @@
     min-height: 380px;
     border-top: 3px solid black;
     padding: 50px;
+    width: 50%;
 }
 
 .contact-block:first-child {
@@ -47,4 +48,27 @@
 
 .contact__info-phone {
     margin: 15px 0;
+}
+
+
+@media (max-width: 700px) {
+    .contact__container {
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .contact-block {
+        width: 100%;
+    }
+
+    .contact-block:first-child {
+        border: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .contact-block {
+        padding: 30px 15px;
+    }
 }

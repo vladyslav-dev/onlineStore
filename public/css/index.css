@@ -212,7 +212,6 @@ a {
 .close-cart.active {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
 }
 
 .close-cart img {

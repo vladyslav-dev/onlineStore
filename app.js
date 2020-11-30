@@ -9,7 +9,7 @@ const ip = require("ip");
 console.log( ip.address() );
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 require("./server");
 

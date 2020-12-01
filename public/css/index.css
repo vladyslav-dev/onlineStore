@@ -150,15 +150,17 @@ a {
 .logo {
     width: 138px;
     opacity: 0;
+    display: none;
     transition: all 0.4s ease 0s;
     margin-left: -52px;
 }
 
 .logo.active {
     opacity: 1;
+    display: block;
 }
 
-.logo img {
+.logo a img {
     width: 100%;
 }
 

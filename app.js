@@ -51,9 +51,7 @@ app.use(
     })
   );
 
-// =================================================================
-//phone: 0501700104
-//password: admin9VgUr68S9622tNiyx3LcU2002
+
 
 app.use((req, res, next) => {
   if (req.cookies.admin_sid && !req.session.admin) {

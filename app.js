@@ -151,6 +151,7 @@ function saveOrder(userData, products) {
         postName : userData.postName,
         postAddress : userData.post,
         paymentMethod : userData.paymentMethod,
+        coment : userData.coment,
         date : userData.date,
         confirmed : false,
         success : false

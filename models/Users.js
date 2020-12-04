@@ -26,6 +26,9 @@ const user = new Schema({
     paymentMethod : {
         type: String
     },
+    coment : {
+        type: String
+    },
     date : {
         type: String
     },

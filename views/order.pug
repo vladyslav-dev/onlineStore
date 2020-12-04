@@ -41,7 +41,7 @@ html
                                     input(type="text" id="phone" name="phone" onchange="checkInput(this)" required)
                                     label Телефон
                                     span Поле заполнено не верно.
-                        div(class="order__title") Доставка и оплата
+                        div(class="order__title") Доставка и оплата (не обязательно)
                         div(class="order__post")
                             div(class="order__post-img-section")
                                 div(class="order__post-image")
@@ -55,22 +55,18 @@ html
                                         img(src="./images/deliver.png")
                                         p Выбрано
                             div(class="order__forms-input order__post-input")
-                                input(type="text" id="post" name="post" onchange="checkInput(this)")
+                                input(type="text" id="post" onchange="checkInput(this)")
                                 label Адресс и номер отделения
-                            div(class="order__pay-block")
-                                div(class="order__pay-item")
-                                    input(type="radio" id="radio_3" name="radio-group2" value="Оплата сейчас на карту")
-                                    label(for="radio_3" class="order__pay-label")
-                                        p Оплата сейчас на карту
-                                div(class="order__pay-item")
-                                    input(type="radio" id="radio_4" name="radio-group2" value="Оплата через почту при получении")
-                                    label(for="radio_4" class="order__pay-label")
-                                        p Оплата через почту при получении
-                            div(class="order__finish-block")
-                                div(class="order__finish-text") Я прочитал и согласен с правилами 
-                                    span(onclick="showRule()") пользовательского соглашения
-                                div(class="order__finish-button" onclick="finishOrder()") Подтвердить
-                                div(class="order__warning") Есть незаполненные или не выбранные поля
+                            div(class="order__forms-input order__post-input" style="margin-top: 40px;")
+                                input(type="text" id="payMethod" onchange="checkInput(this)")
+                                label Вариант оплаты
+                        div(class="order__title") Коментарий (вопрос или уточнение)
+                        textarea(class="order__coment" id="coment" placeholder="Здесь вы можете задать вопрос или написать пожелания")
+                        div(class="order__finish-block")
+                            div(class="order__finish-text") Я прочитал и согласен с правилами 
+                                span(onclick="showRule()") пользовательского соглашения
+                            div(class="order__finish-button" onclick="finishOrder()") Подтвердить
+                            div(class="order__warning") Есть незаполненные или не выбранные поля
             div(class="modal__rule")
                 div(class="modal__rule-block")
             include footer                

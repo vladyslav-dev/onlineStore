@@ -76,7 +76,8 @@ if (window.location.pathname == '/order') {
     IMask(phoneInp, maskOptions);
 
     const radios1 = document.getElementsByName('radio-group'); // postName
-    const radios2 = document.getElementsByName('radio-group2') // paymentMethod
+    const comentTextarea = document.querySelector('#coment');
+    const payMethod = document.querySelector('#payMethod');
 
     let firstName;
     let lastName;
@@ -86,20 +87,18 @@ if (window.location.pathname == '/order') {
     let postName;
     let post;
     let paymentMethod;
+    let coment;
 
     function finishOrder() {
 
         radios1.forEach(item => {
             if(item.checked) {
-                postName = item.value || 'Данные не указаны';
+                postName = item.value;
             }
         })
 
-        radios2.forEach(item => {
-            if(item.checked) {
-                paymentMethod = item.value || 'Данные не указаны';
-            }
-        })
+        paymentMethod = payMethod.value;
+        coment = comentTextarea.value;
 
         if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined) {
             console.log('canceled');
@@ -121,12 +120,15 @@ if (window.location.pathname == '/order') {
             'city' : city,
             'mail': mail,
             'phone': phone,
-            'postName' : postName,
-            'post' : post,
-            'paymentMethod': paymentMethod,
+            'postName' : postName || 'Данные не указаны',
+            'post' : post || 'Данные не указаны',
+            'paymentMethod': paymentMethod || 'Данные не указаны',
+            'coment' : coment || 'Данные не указаны',
             'date': date,
             'key' : JSON.parse(localStorage.getItem('cart'))
         }
+
+        console.log(dataOrder);
 
         fetch('/finish-order', {
             method: 'POST',

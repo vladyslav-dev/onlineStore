@@ -1,0 +1,24 @@
+id,subcategory-name,image,category
+0,Кофе,food/category-1.jpg,0
+1,Чай,food/category-2.jpg,0
+2,Шоколад,food/category-3.jpg,0
+3,Макаронные изделия,food/category-4.jpg,0
+4,Сыры и колбасы,food/category-5.jpg,0
+5,Оливковое масло,food/category-6.jpg,0
+6,Морепродукты/Икра,food/category-7.jpg,0
+7,Соусы и приправы,food/category-8.jpg,0
+8,Орехи и сухофрукты,food/category-9.jpg,0
+9,Вино,alcohol/category-10.jpg,1
+10,Виски,alcohol/category-11.jpg,1
+11,Бренди / Коньяк,alcohol/category-12.jpg,1
+12,Джин,alcohol/category-13.jpg,1
+13,Ром,alcohol/category-14.jpg,1
+14,Ликер,alcohol/category-15.jpg,1
+15,Настойка,alcohol/category-16.jpg,1
+16,Вермут,alcohol/category-17.jpg,1
+17,Гель/Порошок для стирки,chemistry/category-18.jpg,2
+18,Капсулы для стирки,chemistry/category-19.jpg,2
+19,"Ополаскиватели, пятновыводители",chemistry/category-20.jpg,2
+20,Моющие средства,chemistry/category-21.jpg,2
+21,"Мыло, шампуни, гели для душа",chemistry/category-22.jpg,2
+22,Памперсы,chemistry/category-23.jpg,2

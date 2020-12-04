@@ -141,6 +141,7 @@ app.post('/finish-order', function(req, res) {
 function saveOrder(userData, products) {
 
     let fullNameStr = userData.firstName + ' ' + userData.lastName;
+    console.log(userData);
 
     const user = new User({
         user_id : userData.orderId,

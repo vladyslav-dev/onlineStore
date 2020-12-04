@@ -20,9 +20,9 @@ html
                             h2(class='product-title') #{goods[0]['name']}
                             span(class='product-price') #{goods[0]['cost']} ₴    
                             div(class='product-about')
-                                if goods[0]['availability'] == "true"           
+                                if goods[0]['availability'] == true           
                                     div(class="available") Есть в наличии &#10004;
-                                if goods[0]['availability'] == "false"           
+                                if goods[0]['availability'] == false          
                                     div(class="available" style="color: red") Нет в наличии &#10008;
 
                                 div(class='goods__info-buttons')

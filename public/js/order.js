@@ -128,7 +128,6 @@ if (window.location.pathname == '/order') {
             'key' : JSON.parse(localStorage.getItem('cart'))
         }
 
-        console.log(dataOrder);
 
         fetch('/finish-order', {
             method: 'POST',

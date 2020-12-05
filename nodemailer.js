@@ -60,7 +60,7 @@ module.exports.sendMail = (data, result) => {
                             </tr>
                             <tr>
                                 <td colspan="4" style="text-align: center; padding: 10px">
-                                    Помощь по телефону +38 (066) ***-**-** add numbers
+                                    Помощь по телефону 099-523-86-07
                                 </td>
                             </tr>
                             <tr>
@@ -82,7 +82,7 @@ module.exports.sendMail = (data, result) => {
     });
     
     const mailOptions = {
-        from: 'grigovlad09112002@gmail.com',
+        from: 'vinorosend@gmail.com',
         to: `vinorosend@gmail.com, ${data.mail}`,
         subject: `Vinoro. Ваш заказ ${data.orderId} оформлен`,
         text: 'null',

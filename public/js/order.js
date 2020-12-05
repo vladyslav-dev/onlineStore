@@ -75,9 +75,9 @@ if (window.location.pathname == '/order') {
 
     IMask(phoneInp, maskOptions);
 
-    const radios1 = document.getElementsByName('radio-group'); // postName
-    const comentTextarea = document.querySelector('#coment');
-    const payMethod = document.querySelector('#payMethod');
+    let radios1 = document.getElementsByName('radio-group'); // postName
+    let comentTextarea = document.querySelector('#coment');
+    let payMethod = document.querySelector('#payMethod');
 
     let firstName;
     let lastName;

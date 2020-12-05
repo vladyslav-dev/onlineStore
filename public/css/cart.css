@@ -108,7 +108,21 @@
 
 .cart-img {
     width: 100%;
-    margin-bottom: 17px;
+    margin-bottom: 13px;
+}
+
+.cart-product-availability {
+
+}
+
+.cart-available {
+  color: rgb(19, 131, 19);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  margin: 0 10px;
+  margin-bottom: 5px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgb(185, 185, 185);
 }
 
 .cart-name {

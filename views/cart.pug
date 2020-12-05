@@ -7,9 +7,9 @@ div(class="cart")
                 alt="Фото данного товара отсутствует"
                 )
             div(class='cart-product-availability')
-                if goods[0]['availability'] == true           
+                if val['availability'] == true           
                     div(class="cart-available") Есть в наличии &#10004;
-                if goods[0]['availability'] == false          
+                if val['availability'] == false          
                     div(class="cart-available" style="color: red") Нет в наличии &#10008;
             p(class="cart-name") #{val['name']}
             p(class="cart-price") #{val['cost']} грн

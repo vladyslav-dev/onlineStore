@@ -63,16 +63,6 @@
     #inner__heart-content {
       grid-template-columns: repeat(auto-fill, minmax(auto, 23%));
     }
-  
-    .cart-name {
-      font-size: 13px;
-    }
-  
-    .cart-price {
-      font-size: 14px;
-      margin: 28px 0 10px 0;
-    }
-  
   }
   
   @media (max-width: 800px) {
@@ -88,11 +78,5 @@
     #inner__heart-content {
       grid-template-columns: repeat(auto-fill, minmax(auto, 48%));
     }
-  
-    .cart-name {
-      font-size: 12px;
-      line-height: 1.5em;
-    }
-  
   }
   

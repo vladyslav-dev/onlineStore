@@ -12,10 +12,12 @@ div(class="cart")
                 if val['availability'] == false          
                     div(class="cart-available" style="color: red") Нет в наличии &#10008;
             p(class="cart-name") #{val['name']}
-            p(class="cart-price") #{val['cost']} грн
-        div(class="to-cart")
-            p Смотреть товар
-
-            
+    div(class="to-cart-block")
+        div(class="cart-price") #{val['cost']} грн
+        div(class="to-cart-buttons")
+            div(class="to-cart product_btn-add" data-goods_id=val['id'])
+                img(src="./images/add-to-cart-icon.svg", alt="")
+            div(class="to-cart product_btn-heart pbh" data-goods_heart_id=val['id'])
+                img(src="./images/add-to-heart-icon.svg", alt="")
             
             

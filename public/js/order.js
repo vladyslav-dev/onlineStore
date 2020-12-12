@@ -2,7 +2,7 @@
 if (window.location.pathname == '/order') {
 
     const rules = `<div id="rule-text">
-    <div class="modal__rule-header"><h2>Условия пользовательского соглашения</h2><img src="../images/close-icon.png" id="close_rule"></div>
+    <div class="modal__rule-header"><h2>Условия пользовательского соглашения</h2><img src="../images/close-icon2.png" id="close_rule"></div>
     <p><strong>Уважаемый, покупатель!</strong><br>
     Пожалуйста, перед покупкой товара внимательно прочитайте&nbsp;Пользовательское соглашение с Интернет-магазином Vinoro</p>
     <p>Настоящий текст является Пользовательским соглашением между Интернет-магазином Vinoro.com.ua именуемым в дальнейшем "Интернет-магазин", и пользователем услуг Интернет-магазина, именуемым в дальнейшем «Покупатель» и определяет условия приобретения товаров через сайт Интернет-магазина.</p>
@@ -50,16 +50,30 @@ if (window.location.pathname == '/order') {
     8.2. Настоящее Соглашение должно рассматриваться в том виде, как оно опубликовано на Сайте, и должно применяться и толковаться в соответствии с законодательством Украины.</p>
     </div>`;
 
-    document.querySelectorAll('footer')[0].style.display = 'none';
+    document.querySelector('footer').style.display = 'none';
 
-    document.querySelectorAll('.modal__rule-block')[0].innerHTML = rules;
+    let order_form_post = document.querySelector('#order-form-post'); // input post address field
+    let input_new_post = document.querySelector('#radio_1'); // radio input "Нова Пошта"
+    let input_samovivoz = document.querySelector('#radio_2'); // radio input "САМОВЫВОЗ"
     let modal_rule = document.querySelector('.modal__rule');
     let modal_rule_block = document.querySelector('.modal__rule-block');
+        modal_rule_block.innerHTML = rules;
+
     document.querySelector('#close_rule').onclick = function() {
         modal_rule.style.display = 'none';
         modal_rule_block.style.display = 'none';
         document.getElementsByTagName('body')[0].classList.remove('active');
     }
+
+    input_new_post.addEventListener('change', () => {
+        order_form_post.classList.add('active');
+        order_form_post.firstChild.value = '';
+    })
+
+    input_samovivoz.addEventListener('change', () => {
+        order_form_post.classList.remove('active');
+        order_form_post.firstChild.value = "Самовывоз";
+    })
 
     function showRule() {
         modal_rule.style.display = 'block';
@@ -76,8 +90,9 @@ if (window.location.pathname == '/order') {
     IMask(phoneInp, maskOptions);
 
     let radios1 = document.getElementsByName('radio-group'); // postName
+    let postInput = document.querySelector('#post'); // post address field
+    let payMethod = document.getElementsByName('radio-group2'); // payMethod
     let comentTextarea = document.querySelector('#coment');
-    let payMethod = document.querySelector('#payMethod');
 
     let firstName;
     let lastName;
@@ -94,18 +109,27 @@ if (window.location.pathname == '/order') {
         radios1.forEach(item => {
             if(item.checked) {
                 postName = item.value;
+                if (item.value == "Самовывоз") {
+                    postInput = item.value;
+                    post = postInput;
+                }
             }
         })
 
-        paymentMethod = payMethod.value;
+        payMethod.forEach(item => {
+            if(item.checked) {
+                paymentMethod = item.value;
+            }
+        })
+        
         coment = comentTextarea.value;
 
-        if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined) {
+        if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined || postName == undefined || post == undefined || paymentMethod == undefined) {
             console.log('canceled');
-            document.querySelectorAll('.order__warning')[0].style.display = 'block';
+            document.querySelector('.order__warning').style.display = 'block';
             return false;
         } else {
-            document.querySelectorAll('.order__warning')[0].style.display = 'none';
+            document.querySelector('.order__warning').style.display = 'none';
         }
 
         const orderId = `#${Date.now()}`;
@@ -120,9 +144,9 @@ if (window.location.pathname == '/order') {
             'city' : city,
             'mail': mail,
             'phone': phone,
-            'postName' : postName || 'Данные не указаны',
-            'post' : post || 'Данные не указаны',
-            'paymentMethod': paymentMethod || 'Данные не указаны',
+            'postName' : postName,
+            'post' : post,
+            'paymentMethod': paymentMethod,
             'coment' : coment || 'Данные не указаны',
             'date': date,
             'key' : JSON.parse(localStorage.getItem('cart'))
@@ -196,7 +220,7 @@ if (window.location.pathname == '/order') {
                     fillWrong(inp);
                 };
                     break;
-                case 'post' : post = inp.value.trim() || 'Данные не указаны';      
+                case 'post' : post = inp.value.trim();      
                     break;
             }
         }
@@ -278,10 +302,10 @@ if (window.location.pathname == '/order') {
                                 <div class="order__info-data">${data.phone}</div>
                             </div>
                             <div class="order__finish-row">
-                                <div class="order__info-name">Почта</div>
+                                <div class="order__info-name">Доставка</div>
                                 <div class="order__info-data">${data.postName}</div>
                             </div>
-                            <div class="order__finish-row">
+                            <div class="order__finish-row" id="postAddress-block">
                                 <div class="order__info-name">Адресс и номер отделения</div>
                                 <div class="order__info-data">${data.post}</div>
                             </div>
@@ -289,14 +313,63 @@ if (window.location.pathname == '/order') {
                                 <div class="order__info-name">Способ оплаты</div>
                                 <div class="order__info-data">${data.paymentMethod}</div>
                             </div>
+                            <div class="order__finish-row">
+                                <div class="order__info-name">Комментарий</div>
+                                <div class="order__info-data" id="order__info_comment-btn">${data.coment}</div>
+                            </div>
                             <div class="order__finish-date">
                                 <div>Дата/время заказа</div>
                                 <div>${data.date}</div>
                             </div>
                             <div class="order__finish-end">Ожидайте звонка на телефон</div>
-                        </div>`;
+                        </div>
+                        <div class="order__comment-modal"></div>
+                        <div class="order__comment-innerBlock">
+                            <div class="order__comment-head">
+                                <span>Комментарий:</span>
+                                <img src="../images/close-icon2.png" alt="Закрыть" id="close-comment"/>
+                            </div>
+                            <div id="commentInnerText" class="commentInnerText"></div>
+                        </div>
+                        `;
 
         wrap.innerHTML = content;
+        if (data.post == 'Самовывоз') {
+            document.querySelector('#postAddress-block').remove();
+        }
+
+        
+
+        let comment_btn = document.querySelector('#order__info_comment-btn');
+
+        if (comment_btn.innerText == 'Данные не указаны') {
+            return;
+        } else {
+            comment_btn.innerText = 'Смотреть...';
+            comment_btn.classList.add('commentMore');
+
+            // modal comment window
+            let modalBack = document.querySelector('.order__comment-modal');
+            let innerModal = document.querySelector('.order__comment-innerBlock');
+            let closeModal = document.querySelector('#close-comment');
+
+            comment_btn.addEventListener('click', () => { // open img click
+                modalBack.classList.add('active');
+                innerModal.classList.add('active');
+            })
+
+            closeModal.addEventListener('click', () => { // close img click
+                modalBack.classList.remove('active');
+                innerModal.classList.remove('active');
+            })
+
+            modalBack.addEventListener('click', () => { // close img click
+                modalBack.classList.remove('active');
+                innerModal.classList.remove('active');
+            })
+
+            document.querySelector('#commentInnerText').innerText = data.coment;
+        }
     }
 }
 

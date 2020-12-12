@@ -41,27 +41,37 @@ html
                                     input(type="text" id="phone" name="phone" onchange="checkInput(this)" required)
                                     label Телефон
                                     span Поле заполнено не верно.
-                        div(class="order__title") Доставка и оплата (не обязательно)
+                        div(class="order__title") Доставка и оплата
                         div(class="order__post")
                             div(class="order__post-img-section")
                                 div(class="order__post-image")
-                                    input(type="radio" id="radio_1" name="radio-group" value="Нова Пошта")
+                                    input(type="radio" id="radio_1" name="radio-group" value="Нова Пошта" required)
                                     label(for="radio_1")
                                         img(src="./images/newPost.png")
                                         p Выбрано
                                 div(class="order__post-image")         
-                                    input(type="radio" id="radio_2" name="radio-group" value="Деливери")
+                                    input(type="radio" id="radio_2" name="radio-group" value="Самовывоз" required)
                                     label(for="radio_2")
-                                        img(src="./images/deliver.png")
+                                        img(src="./images/samovivoz.png")
                                         p Выбрано
-                            div(class="order__forms-input order__post-input")
-                                input(type="text" id="post" onchange="checkInput(this)")
+                            div(class="order__forms-input order__post-input" id="order-form-post")
+                                input(type="text" id="post" onchange="checkInput(this)" required)
                                 label Адресс и номер отделения
-                            div(class="order__forms-input order__post-input" style="margin-top: 40px;")
-                                input(type="text" id="payMethod" onchange="checkInput(this)")
-                                label Вариант оплаты
+                            div(class="order__pay-block")
+                                div(class="order__pay-item")
+                                    input(type="radio" id="radio_3" name="radio-group2" value="Оплата на карту" required)
+                                    label(for="radio_3" class="order__pay-label")
+                                        p Оплата на карту
+                                div(class="order__pay-item")
+                                    input(type="radio" id="radio_4" name="radio-group2" value="Наличными" required)
+                                    label(for="radio_4" class="order__pay-label")
+                                        p Наличными
+                                div(class="order__pay-item")
+                                    input(type="radio" id="radio_5" name="radio-group2" value="Наложенный платёж" required)
+                                    label(for="radio_5" class="order__pay-label")
+                                        p Наложенный платёж
                         div(class="order__title") Комментарий (вопрос или уточнение)
-                        textarea(class="order__coment" id="coment" placeholder="Здесь вы можете задать вопрос или написать пожелания")
+                        textarea(class="order__coment" id="coment" placeholder="Здесь вы можете задать вопрос или написать пожелания" maxlength="500")
                         div(class="order__finish-block")
                             div(class="order__finish-text") Я прочитал и согласен с правилами 
                                 span(onclick="showRule()") пользовательского соглашения

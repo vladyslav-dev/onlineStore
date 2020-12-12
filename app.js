@@ -51,8 +51,6 @@ app.use(
     })
   );
 
-
-
 app.use((req, res, next) => {
   if (req.cookies.admin_sid && !req.session.admin) {
     console.log("clearCookies");
@@ -112,7 +110,6 @@ app.post('/get-goods-info', (req, res) => {
 
 app.post('/finish-order', function(req, res) {
 
-    console.log(req.body.key);
     let key = Object.keys(req.body.key);
 
     if (req.body.key != 0) {
@@ -160,8 +157,8 @@ function saveOrder(userData, products) {
     user.save( (err, result) => {
         if (err) throw err;
         if(result) {
-            console.log(`New user ${fullNameStr} created`);
-            console.log(result);
+            // console.log(`New user ${fullNameStr} created`);
+            // console.log(result);
         }
     })
 
@@ -180,7 +177,7 @@ function saveOrder(userData, products) {
         product.save( (err, result) => {
             if (err) throw err;
             if(result) {
-                console.log(`New product ${fullNameStr} pushed`);
+                // console.log(`New product ${fullNameStr} pushed`);
             }
         })
     }  

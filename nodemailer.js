@@ -4,8 +4,11 @@ module.exports.sendMail = (data, result) => {
 
     let content = ``;
     let goodsContent = ``;
-
+    let total = 0;
+    
     for (let i = 0; i < result.length; i++) {
+
+        total += data.key[result[i]['id']] * result[i]['cost'];
         goodsContent+= `<tr>
                             <td style="border: 1px solid #afafaf; padding: 8px;">${result[i]['name']}</td>
                             <td style="border: 1px solid #afafaf; padding: 8px;">${result[i]['cost']} грн</td>
@@ -70,7 +73,11 @@ module.exports.sendMail = (data, result) => {
                                 <td style="border: 1px solid #afafaf; padding: 8px; font-weight: 700;">Всего</td>
                             </tr>
                             ${goodsContent}
-
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 10px">
+                                    Всего к оплате: ${total} грн
+                                </td>
+                            </tr>
                         </table>`;
 
     const transporter = nodemailer.createTransport({

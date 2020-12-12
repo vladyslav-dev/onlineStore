@@ -86,8 +86,7 @@
   }
 
   .cart-price {
-    font-size: 14px;
-    margin: 28px 0 10px 0;
+    margin: 10px 0;
   }
 
 }
@@ -100,6 +99,17 @@
 
 }
 
+
+@media (max-width: 645px) {
+  .pbh {
+    display: none;
+  }
+
+  .to-cart-buttons {
+    width: auto;
+  }
+}
+
 @media (max-width: 500px) {
 
   .subcategory__content-block {
@@ -108,7 +118,6 @@
 
   .cart-name {
     font-size: 12px;
-    line-height: 1.5em;
   }
 
   .subcategory__navigation-all li a:after {
@@ -119,5 +128,15 @@
     vertical-align: -7px;
   }
 
+}
+
+@media (max-width: 360px) {
+  .cart-price {
+    font-size: 17px;
+  }
+
+  .cart-available {
+    font-size: 12px;
+  }
 }
 

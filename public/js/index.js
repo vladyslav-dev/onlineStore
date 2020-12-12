@@ -25,17 +25,16 @@ if (window.location.pathname !== '/order') {
             logoImg.style.display = 'none';
         }
 
-        if (window.location.pathname == '/subcategory' || window.location.pathname == '/goods') {  
+        if (window.location.pathname == '/subcategory' || window.location.pathname == '/goods' || window.location.pathname == '/contacts') {  
             header_row2.classList.add('active');
             header_burger2.classList.add('tool');
             heart_icon2.src = '../images/heart.svg';
             cart_icon2.src = '../images/bag.svg';
             logoImg.src = '../images/logo.png';
             logoImg.style.display = 'block';
-        
         }
 
-        if (window.location.pathname == '/') {
+        if (window.location.pathname === '/') {
             if (window.scrollY > 440) {
                 main_logo.classList.add('active');
             } else {
@@ -56,18 +55,14 @@ if (window.location.pathname !== '/order') {
         }
     });
 
-    if (window.location.pathname == '/favorite') {
-        logoImg.src = '../images/logo-white.png';
-        main_logo.classList.add('active');
-    }
-
-    if (window.location.pathname == '/goods') {
+    if (window.location.pathname == '/favorite' || window.location.pathname == '/goods') {
         logoImg.src = '../images/logo-white.png';
         main_logo.classList.add('active');
     }
 
 
-    if (window.location.pathname == '/subcategory' || window.location.pathname == '/goods') {     
+
+    if (window.location.pathname == '/subcategory' || window.location.pathname == '/goods' || window.location.pathname == '/contacts') {     
         header_row2.classList.add('active');
         main_logo.classList.add('active');
         header_burger2.classList.add('tool');

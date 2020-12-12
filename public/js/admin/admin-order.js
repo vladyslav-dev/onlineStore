@@ -84,7 +84,7 @@ function showModalWindow(data, id) {
                             </div>
                             <div class="modal__userInfo-item">
                                 <span class="userInfo-item-label">Комментарий:</span>
-                                <span class="userInfo-item-text" id="success-value">${users['coment']}</span>
+                                <span class="userInfo-item-text">${users['coment']}</span>
                             </div>
                         </div>
                         <div class="modal__productInfo">

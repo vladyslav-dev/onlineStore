@@ -8,8 +8,6 @@
 }
 
 .contact-block {
-    min-height: 380px;
-    border-top: 3px solid black;
     padding: 50px;
     width: 50%;
 }
@@ -65,6 +63,7 @@
 
     .contact-block {
         width: 100%;
+        border-top: 3px solid black;
     }
 
     .contact-block:first-child {

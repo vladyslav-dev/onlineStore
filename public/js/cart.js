@@ -298,15 +298,15 @@ function showOrder(data) {
                                 <img src="images/goods-img${data[key]['image']}">
                             </div>
                             <div class="order__item-info">
-                                <div class="order__item-info-name">${data[key]['name']}</div>
-                                <div class="order__item-info-cost">${data[key]['cost']} ₴</div> 
-                            </div>
-                            <div class="order__item-count">
-                               кол. ${cart[key]}
-                            </div>
-                            <div class="order__item-price">
-                                ${data[key]['cost']*cart[key]} ₴
-                            </div>
+                                <div class="order__item-top">
+                                    <div class="order__item-info-name">${data[key]['name']}</div>
+                                    <div class="order__item-info-cost">${data[key]['cost']} ₴</div> 
+                                </div>
+                                <div class="order__item-bottom">
+                                    <div class="order__item-count">кол. ${cart[key]}</div>
+                                    <div class="order__item-price">${data[key]['cost']*cart[key]} ₴</div>
+                                </div>
+                            </div> 
                         </div>`;
             total += data[key]['cost']*cart[key]; 
         }

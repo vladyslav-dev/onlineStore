@@ -77,7 +77,7 @@ strong {
 
 .order__title {
     width: 100%;
-    border-bottom: 1px solid #1d1d1d;;
+    border-bottom: 1px solid #1d1d1d;
     font-family: 'Century-Gothic', Arial, Helvetica, sans-serif;
     font-size: 17px;
     padding: 0 0 5px 10px;
@@ -85,7 +85,7 @@ strong {
 }
 
 .innerContent {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
 
 
@@ -93,18 +93,16 @@ strong {
 .order__item {
     /* border: 1px solid #1d1d1d; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     font-family: 'Roboto';
     font-weight: 300;
-    font-size: 14px;
-    /* border: 1px solid #1341; */
-    height: 75px;
-    letter-spacing: 20%;
-    margin-bottom: 10px;
+    /* font-size: 14px; */
+    height: 200px;
+    margin-bottom: 25px;
 }
 
 .order__item .order__item-image {
-    width: 100px;
+   height: 100%;
 }
 
 .order__item .order__item-image img {
@@ -114,55 +112,46 @@ strong {
 }
 
 .order__item-info {
-    min-width: 150px;
-    height: 100%;
-    margin-left: 9px;
-    margin-top: 4px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order__item-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #818181;
+    border-bottom: 1px solid #818181;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .order__item-info-name {
     font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2em;
 }
 
 .order__item-info-cost {
-    margin-top: 6px;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .order__item-count {
-    width: 100%;
-    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    color: #818181;
 }
 
 .order__item-price {
-    min-width: 55px;
-    height: 100%;
-    line-height: 75px;
-    /* border-bottom: 1px solid #afafaf;
-    border-right: 1px solid #afafaf; */
-    position: relative;
+    font-weight: 500;
+    font-size: 19px;
 }
 
-.order__item-price:before {
-    content: '';
-    display: inline-block;
-    height: 1px;
-    width: 70px;
-    background-color: #afafaf;
-    position: absolute;
-    right: 10px;
-    bottom: 0;
-}
 
-.order__item-price:after {
-    content: '';
-    display: inline-block;
-    height: 60px;
-    width: 1px;
-    background-color: #afafaf;
-    position: absolute;
-    right: 0;
-    bottom: 10px;
-}
 
 .totalCost {
     text-align: center;
@@ -178,7 +167,7 @@ strong {
     /* letter-spacing: 20%; */
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     position: relative;
 }
 
@@ -774,43 +763,13 @@ strong {
     }
 
     .order__item {
-        height: 40px;
-        margin-bottom: 20px;
+        height: 165px;
     }
 
-    .order__item-price {
-        line-height: 40px;
-        font-size: 12px;
-        text-align: center;
+    .order__item-info-name, .order__item-count , .order__item-price, .order__item-info-cost {
+        font-size: 15px;
     }
 
-    .order__item-price:after {
-        height: 30px;
-    }
-
-    .order__item-price:before {
-        width: 40px;
-    }
-
-    .order__item-info-name {
-        font-size: 12px;
-    }
-
-    .order__item-info-cost {
-        font-size: 12px;
-    }
-
-    .order__header-logo img {
-        width: 160px;
-    }
-
-    .order__header-text {
-        font-size: 13px;
-    }
-
-    .order__item-count {
-        font-size: 11px;
-    }
 
     .totalCost {
         width: 280px;
@@ -848,12 +807,35 @@ strong {
         padding: 15px 0px;
         padding-top: 5px;
     }
+
+    .order__item-info-name {
+        max-height: 55px;
+        overflow: hidden;
+    }
 }
 
 @media (max-width: 440px) {
     .order__post-image {
         height: 40px;
     }
+
+    .order__item {
+        height: 135px;
+    }
+
+
+    .order__item-info {
+        width: 100%;
+        padding: 0;
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+    .order__item-info-cost {
+        margin-top: 6px;
+        font-size: 15px;
+    }
+  
 }
 
 @media (max-width: 370px) {
@@ -864,5 +846,20 @@ strong {
     .modal__rule-header h2 {
         font-size: 19px;
         line-height: 1.2em;
+    }
+
+    .order__item {
+        height: 135px;
+    }
+}
+
+@media (max-width: 350px) {
+    .order__item {
+        height: 120px;
+    }
+
+    .order__item-info-name {
+        max-height: 35px;
+        overflow: hidden;
     }
 }

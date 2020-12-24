@@ -12,7 +12,7 @@
     /* margin: 15px; */
     position: relative;
     transition: 0.2s ease-out ;
-    max-width: 300px;
+    /* max-width: 300px; */
     /* height: 450px; */
     /* border: 1px solid red; */
 }
@@ -95,8 +95,8 @@
 }
 
 .cart-name {
-    font-family: "New-Channel-Font";
-    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     letter-spacing: 0.5px;
     color: rgb(88, 88, 88);
     margin: 0 10px;

@@ -6,7 +6,9 @@
 */
 
 $(document).ready(function(){
-	$('#ex1').zoom(); 
+	if (document.body.clientWidth > 550) {
+		$('#ex1').zoom(); 
+	}
 });
 
 (function ($) {
@@ -19,7 +21,7 @@ $(document).ready(function(){
 		touch: true, // enables a touch fallback
 		onZoomIn: false,
 		onZoomOut: false,
-		magnify: 0.30
+		magnify: 0.90
 	};
 
 	// Core Zoom Logic, independent of event listeners.

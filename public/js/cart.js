@@ -137,8 +137,9 @@ if (window.location.pathname !== '/order') {
 
 function openCartFunction() {
 
-    if ((window.location.pathname === '/' || window.location.pathname === '/category') && (window.scrollY < 440 || window.scrollY == 0)) {
+    if ((window.location.pathname === '/') && (window.scrollY < 440 || window.scrollY == 0)) {
         document.querySelector('.container__row').style.justifyContent = 'flex-end';
+        console.log('worked');
     }
 
     cart_modal.classList.add('active');

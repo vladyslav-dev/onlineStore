@@ -3,8 +3,6 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-
-
 const ip = require("ip");
 console.log( ip.address() );
 
@@ -12,8 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 80;
 
 require("./server");
-
-
 
 // Routes
 const mainPageRoutes = require('./routes/index');

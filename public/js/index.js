@@ -1,4 +1,3 @@
-   
 if (window.location.pathname !== '/order') {
     
     const header_row2 = document.querySelector('.header__row');

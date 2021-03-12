@@ -2,11 +2,7 @@ let orders = document.querySelectorAll('.orders__content-item');
 
 orders.forEach(item => {
     item.onclick = () => {
-
-        console.log(item.childNodes[0].childNodes[0].childNodes[1])
-
-
-        const orderID = item.childNodes[0].childNodes[0].childNodes[1].innerText;
+         const orderID = item.childNodes[0].childNodes[0].childNodes[1].innerText;
         getUserAndOrderList({id : orderID}).then( body => showModalWindow(body, orderID));
     }
 })
@@ -39,7 +35,7 @@ function showModalWindow(data, id) {
     let content = `<div class="modal__container">
                         <div class="modal__header">
                             <h1>Просмотр заказа<span>${users['user_id']}</span></h1>
-                            <img src='../../../images/close-icon.png' id="close-modal-window" alt='Not found'>
+                            <img src='../../../images/close-icon2.png' id="close-modal-window" alt='Not found'>
                         </div>
                         <div class="modal__userInfo">
                             <div class="modal__userInfo-item">

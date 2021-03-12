@@ -513,6 +513,7 @@ strong {
 .order__info-data {
     color: #1e1e71;
     text-align: right;
+    margin-right: 10px;
 }
 
 .order__finish-header {
@@ -578,7 +579,6 @@ strong {
     left: 0;
     right: 0;
     max-width: 700px;
-    width: 95%;
     min-height: 100px;
     margin: 200px auto;
     padding: 15px 20px;

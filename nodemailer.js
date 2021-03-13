@@ -17,8 +17,7 @@ module.exports.sendMail = (data, result) => {
                         <tr>`
     }
 
-    content = `   
-                    <table style=" border-collapse: collapse; border: 1px solid #afafaf; border-radius: 6px; max-width: 600px; width: 100%; padding-left: 15px; padding-right: 15px; padding-bottom: 20px; margin: 0 auto">
+    content = `<table style=" border-collapse: collapse; border: 1px solid #afafaf; border-radius: 6px; max-width: 600px; width: 100%; padding-left: 15px; padding-right: 15px; padding-bottom: 20px; margin: 0 auto">
                             <tr>
                                 <td colspan="4" style="text-align: center"><h2>Заказ оформлен :)</h2></td>
                             </tr>

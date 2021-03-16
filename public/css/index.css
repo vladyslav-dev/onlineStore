@@ -37,6 +37,50 @@ a {
     text-decoration: none;
 }
 
+/* problem with site block */
+
+.help__block {
+    position: fixed;
+    bottom: 15px;
+    right: -131px;
+    z-index: 200;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: #1d1d1d;
+    padding: 5px 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: -2px 4px 4px 0px #33333394;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+
+
+.help__block::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url("../images/help.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 6px;
+}
+
+.help__block:hover {
+    right: 0;
+}
+
+
+
+
+/* ======================= */
+
 .header {
     width: 100%;
     min-height: 940px;

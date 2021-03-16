@@ -1,0 +1,54 @@
+html    
+    head
+        meta(charset='utf8')
+        meta(
+            name='viewport'
+            content='width=device-width, initial-scale=1.0'
+        )
+        meta(name="description" content="Интернет магазин Vinoro (Товары из Европы). В ассортименте Продукты питания, Алкоголь, Бытовая химия. Приятные цены. Доставка по Украние")
+        meta(name="keywords" content="vinoro, продукты, алкгоголь, товары из европы, запорожье, доставка, бытовая химия, цены, цена, купить")
+        title Интернет-магазин Vinoro — Контакты
+        include header-links
+        link(
+            rel='stylesheet'
+            href='css/index.css'
+            )
+        link(
+            rel='stylesheet'
+            href='css/cart.css'
+            )
+        link(
+            rel="stylesheet",
+            href="css/help.css"
+            )
+    body
+        div(class="wrap")
+            include header-nav
+            div(class="help__container") 
+                div(class="help__content") Если у вас возникла проблема с открытием корзины, меню сайта или другими элементами, настоятельно рекомендуем выбрать и установить любой из предложенных браузеров. Если у вас он уже установлен, просто откройте его, затем введите в адресную строку vinoro.shop
+                div(class="help__browsers")
+                    div(class="help__browsers-item")
+                        a(href="https://www.google.com/chrome/" target="_blank")
+                            img(src="./images/chrome.png", alt="chrome")
+                            p Нажмите на изображение чтобы перейти на страницу установки
+                    div(class="help__browsers-item")
+                        a(href="https://www.opera.com/uk/download" target="_blank")
+                            img(src="./images/opera.png", alt="opera")
+                            p Нажмите на изображение чтобы перейти на страницу установки
+        script(src='./js/burger.js')
+        script(src='./js/index.js')
+        script(src='./js/cart.js')
+        script(src="./js/favorites.js") 
+        script. 
+                let header_row2 = document.querySelector('.header__row');
+                let main_logo = document.querySelector('.logo');
+                let logoImg = document.querySelector('.logo img');
+                close_cart.firstElementChild.src = "../images/close-icon-white.png";
+
+                header_row2.style.background = '#000';
+                logoImg.src = '../images/logo-white.png';
+                main_logo.style.opacity = '1';
+                main_logo.style.display = 'block';
+  
+
+                

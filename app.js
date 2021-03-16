@@ -76,6 +76,10 @@ app.use('/favorite', favoritePageRoutes);
 app.use('/order', orderPageRoutes);
 app.use('/contacts', contactsPageRoutes);
 
+app.get('/help', (req, res) => {
+  res.render('help')
+})
+
 app.use('/api/admin-page', adminPageRoutes); 
 
 app.post('/get-goods-info', (req, res) => {

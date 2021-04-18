@@ -79,10 +79,20 @@
   padding: 8px;
 }
 
-
-.cart-img {
+.cart-content {
+    overflow: hidden;
     width: 100%;
     margin-bottom: 13px;
+}
+
+.cart-img {
+    max-width: 100%;
+    transition: all 0.3s;
+    will-change: transform; 
+}
+
+.cart-img:hover {
+  transform: scale(1.15);
 }
 
 .cart-available {

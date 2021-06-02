@@ -18,7 +18,7 @@ module.exports.dashboard = async (req, res) => {
 
     let category = new Promise( async (resolve, reject) => {
         let categor = await Category.find({}, (err, data) => {
-            if (err) reject(err);
+            if (err) console.log(err);
         });
 
         resolve(categor);
@@ -26,7 +26,7 @@ module.exports.dashboard = async (req, res) => {
 
     let subcategory = new Promise( async (resolve, reject) => {
         let subcategor = await Subcategory.find({}, (err, data) => {
-            if (err) reject(err);
+            if (err) console.log(err);
         });
 
         resolve(subcategor);
@@ -34,8 +34,8 @@ module.exports.dashboard = async (req, res) => {
 
     let goods = new Promise( async (resolve, reject) => {
         let dat = await Goods.find({}, (err, data) => {
-            if (err) reject(err);
-        }).sort({'id': 1});
+            if (err) console.log(err);
+        }).sort({'order_id': 1});
 
         resolve(dat);
     })
@@ -107,7 +107,7 @@ module.exports.getChangeGood = (req, res) => {
 
     if (req.session.admin && req.cookies.admin_sid) {
 
-        Goods.find({'id' : req.query.id}, (err, data) => {
+        Goods.find({_id : req.query.id}, (err, data) => {
             if (err) reject(err);
             res.render('admin-changer', {goods : data});
         })
@@ -150,7 +150,7 @@ module.exports.changeProduct = async (req, res) => {
         return options;
     }
 
-    let upd = await Goods.findOneAndUpdate({id : new_id}, setUpdate(options));
+    let upd = await Goods.findOneAndUpdate({_id : new_id}, setUpdate(options));
     await upd.save();
 
     res.redirect(`/api/admin-page/changer?id=${new_id}`);

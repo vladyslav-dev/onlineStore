@@ -9,7 +9,7 @@ const orderList = new Schema({
         type: String
     },
     product_id : {
-        type: Number
+        type: String
     },
     product_name : {
         type: String

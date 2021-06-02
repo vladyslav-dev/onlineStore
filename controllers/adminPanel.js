@@ -114,8 +114,6 @@ module.exports.getChangeGood = (req, res) => {
       } else {
         res.redirect('/api/admin-page/login');
       }
-
-    
 };
 
 

@@ -23,6 +23,7 @@ const adminPageRoutes = require('./routes/adminPanel');
 
 // Mongo models
 const Goods = require('./models/Goods');
+const Product = require('./models/Product')
 const User = require('./models/Users');
 const OrderList = require('./models/OrdersList');
 
@@ -87,7 +88,7 @@ app.post('/get-goods-info', (req, res) => {
     if (req.body.key.length != 0) {
         (async () => {
             try {
-              await Goods.find({ id: { $in: req.body.key}}, function (err, data) {
+              await Product.find({ _id: { $in: req.body.key}}, function (err, data) {
                 if (err) throw err;
 
                 let goods = {};
@@ -115,7 +116,7 @@ app.post('/finish-order', function(req, res) {
     if (req.body.key != 0) {
         (async () => {
             try {
-              await Goods.find({ id: { $in: key}}, function (err, result) {
+              await Product.find({ _id: { $in: key}}, function (err, result) {
                 if (err) throw err;
                 saveOrder(req.body, result);
                 let mailer = require('./nodemailer');

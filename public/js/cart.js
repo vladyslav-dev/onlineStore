@@ -351,6 +351,3 @@ if (window.location.pathname == '/goods') {
         
         });     
 };
-
-
-

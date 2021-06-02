@@ -2,6 +2,8 @@ const Category = require('../models/CategoryGoods');
 const Subcategory = require('../models/SubcategoryGoods');
 const Goods = require('../models/Goods');
 
+const Product = require('../models/Product')
+
 module.exports.subcategoryPage = (req, res) => {
 
     let category = new Promise((resolve, reject) => {
@@ -19,9 +21,9 @@ module.exports.subcategoryPage = (req, res) => {
     });
 
     let goods = new Promise( async (resolve, reject) => {
-        let dat = await Goods.find({'subcategory' : req.query.id}, (err, data) => {
+        let dat = await Product.find({'subcategory' : req.query.id}, (err) => {
             if (err) reject(err);
-        }).sort({'id': 1});
+        }).sort({'order_id': 0});
 
         resolve(dat);
     })

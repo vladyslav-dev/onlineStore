@@ -3,7 +3,7 @@ include admin-header
 div(class='wrap')
     div(class="change__container")
         img(
-            src="../../images/goods-img"+goods[0]['image']
+            src=`../../images/goods-img/${goods[0]['image']}`
             class='product-img'
         )
         div(class='goods__info')
@@ -30,7 +30,7 @@ div(class='wrap')
                 div(class="input__item input__item-radio")
                     label(for="unavailable") NEW Нет в наличии:
                     input(type="radio" name="availability" value="false" id="unavailable")
-                    input(type="radio" name=`id` checked="checked" value=`${goods[0]['id']}` hidden="hidden")
+                    input(type="radio" name=`id` checked="checked" value=`${goods[0]['_id']}` hidden="hidden")
                 div(class="input__item input__item-radio")
                     input(type="submit" value="Сохранить")
 

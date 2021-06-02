@@ -14,14 +14,14 @@ section(class="admin__goods")
                             each good, index in goods
                                 if (good['subcategory'] == subcategor['id'])
                                     div(class="good__block")
-                                        a(href=`/api/admin-page/changer?id=${good['id']}`)
+                                        a(href=`/api/admin-page/changer?id=${good['_id']}`)
                                             div(class="good__block-content") 
                                                 div(class="good__image")
                                                     img(src=`../../images/goods-img/${good['image']}`, alt="Изображение не найдено")
                                                 div(class="good__info")
                                                     div(class="good__info-name")
                                                         span(class="good__info-label") Название: 
-                                                        span(class="good__info-text" id=`${good['id']}`) #{good['name']}
+                                                        span(class="good__info-text" id=`${good['_id']}`) #{good['name']}
                                                     div(class="good__info-cost")
                                                         span(class="good__info-label") Стоимость: 
                                                         span #{good['cost']} грн
@@ -32,8 +32,8 @@ section(class="admin__goods")
                                                         else
                                                             span(class="notAllowed") Нет в наличии
                                                     div(class="good__info-id")
-                                                        span(class="good__info-label") id: 
-                                                        span #{good['id']}
+                                                        span(class="good__info-label") _id: 
+                                                        span #{good['_id']}
 div(class="go-up")
     a(href="#home")
         img(src="../../images/arrow.png")

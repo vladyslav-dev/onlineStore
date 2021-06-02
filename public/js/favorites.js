@@ -113,7 +113,7 @@ function showFavoritesGoods(data) {
 
     for (let key in favorites) {
         content += `<div class="cart">
-                        <a href="/goods?id=${data[key]['id']}">
+                        <a href="/goods?id=${data[key]['_id']}">
                             <div class="cart-content">
                                 <img src="./images/goods-img${data[key]['image']}" class="cart-img">
                                 <p class="cart-name">${data[key]['name']}</p>
@@ -123,7 +123,7 @@ function showFavoritesGoods(data) {
                             <div class="cart-price">${data[key]['cost']} грн</div>
                         </div>
                         <div class="delete-icon-favorite" id="delete-from-favorites">
-                            <img src="./images/close-icon.svg" class="delete-from-favor-icon" data-goods_heart_id=${data[key]['id']}>
+                            <img src="./images/close-icon.svg" class="delete-from-favor-icon" data-goods_heart_id=${data[key]['_id']}>
                         </div>  
                     </div>`
     }
@@ -153,4 +153,3 @@ function deleteFavorite() {
 function updateLocalStorageFavorites() {
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
-

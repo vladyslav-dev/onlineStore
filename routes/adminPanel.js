@@ -12,6 +12,10 @@ router.post('/orders', controller.sendPost);
 router.post('/update-status', controller.changeStatus);
 router.post('/finish-status', controller.changeFinishStatus);
 
+router.get('/new-product', controller.addNewProduct)
+router.post('/new-product', controller.postNewProduct)
+
+
 router.get('/logout', controller.exit);
 router.get('/fail', controller.fail);
 

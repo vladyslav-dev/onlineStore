@@ -1,0 +1,34 @@
+.newProduct {
+    margin-top: 100px;
+}
+
+.newProduct-container {
+    max-width: 900px;
+    margin: auto
+}
+
+.newProduct-form {
+
+}
+
+.newProduct-form__item {
+    border-bottom: 1px solid rgb(75, 75, 75);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    font: 16px "Roboto", sans-serif;
+}
+
+.newProduct-form__item > input {
+    height: 32px;
+}
+
+.newProduct-form__item > textarea {
+    height: 400px;
+    font: 16px "Roboto", sans-serif;
+}
+
+.newProduct-form__item > input[type='submit'] {
+    width: 100%;
+}

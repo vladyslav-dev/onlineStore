@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// const autoIncrement = require('mongoose-auto-increment')
 
 const product = new Schema({
     subcategory : {
         type: Number
     },
     order_id : {
-        type: Number
+        type: Number,
+        require : true,
+        default : 0
     },
     name : {
         type: String
@@ -24,5 +27,7 @@ const product = new Schema({
         type: Boolean
     }
 }, {collection: 'productsCollection'});
+
+// product.plugin(autoIncrement.plugin, 'productsCollection');
 
 module.exports = mongoose.model('productsCollection', product);

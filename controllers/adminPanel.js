@@ -5,6 +5,7 @@ const jwt_key = 'dev-jwt';
 //models
 const AdminPanel = require('../models/adminPanel');
 const Goods = require('../models/Goods');
+const Product = require('../models/Product')
 const Category = require('../models/CategoryGoods');
 const Subcategory = require('../models/SubcategoryGoods');
 const User = require('../models/Users');
@@ -27,15 +28,15 @@ module.exports.dashboard = async (req, res) => {
     let subcategory = new Promise( async (resolve, reject) => {
         let subcategor = await Subcategory.find({}, (err, data) => {
             if (err) console.log(err);
-        });
+        }).sort({id : 0})
 
         resolve(subcategor);
     });
 
     let goods = new Promise( async (resolve, reject) => {
-        let dat = await Goods.find({}, (err, data) => {
+        let dat = await Product.find({}, (err, data) => {
             if (err) console.log(err);
-        }).sort({'order_id': 1});
+        }).sort('order_id');
 
         resolve(dat);
     })
@@ -99,7 +100,6 @@ module.exports.login = async (req, res) => {
 
 module.exports.fail = (req, res) => {
     res.render('admin-fail');
-
 };
 
 
@@ -107,7 +107,7 @@ module.exports.getChangeGood = (req, res) => {
 
     if (req.session.admin && req.cookies.admin_sid) {
 
-        Goods.find({_id : req.query.id}, (err, data) => {
+        Product.find({_id : req.query.id}, (err, data) => {
             if (err) reject(err);
             res.render('admin-changer', {goods : data});
         })
@@ -141,14 +141,10 @@ module.exports.changeProduct = async (req, res) => {
             }
         }
 
-        // for (let key in options) {
-        //     console.log(key, ' : ', options[key]);
-        // }
-
         return options;
     }
 
-    let upd = await Goods.findOneAndUpdate({_id : new_id}, setUpdate(options));
+    let upd = await Product.findOneAndUpdate({_id : new_id}, setUpdate(options));
     await upd.save();
 
     res.redirect(`/api/admin-page/changer?id=${new_id}`);
@@ -214,8 +210,6 @@ module.exports.sendPost = async (req, res) => {
 
 module.exports.changeStatus = async (req, res) => {
 
-    console.log(req.body.id);
-
     let upd = await User.findOneAndUpdate({user_id : req.body.id}, {confirmed : true});
     await upd.save();
 
@@ -224,14 +218,42 @@ module.exports.changeStatus = async (req, res) => {
 
 module.exports.changeFinishStatus = async (req, res) => {
 
-    console.log(req.body.id);
-
     let upd = await User.findOneAndUpdate({user_id : req.body.id}, {success : true});
     await upd.save();
 
     res.json({message : "cool"});
 }
 
+module.exports.addNewProduct = async (req, res) => {
+    res.render('admin-newProduct')
+}
 
+const getLastOrderId = async (model) => {
+    const result = await Product.find({subcategory : model.subcategory}).sort({order_id : -1}).limit(1)
+    return result[0]['order_id'] + 1 // return last index in subcategory
+}
+
+module.exports.postNewProduct = async (req, res) => {
+    try {
+        const data = req.body
+
+        let newProduct = await Product.create(data)
+
+        await newProduct.save()
+
+        let lastOrderId = await getLastOrderId(newProduct)
+
+        let modifyProduct = await Product.findByIdAndUpdate(
+            {_id : newProduct._id},
+            {order_id : lastOrderId}
+        )
+
+        await modifyProduct.save()
+
+    } catch (err) {
+        console.log(err)
+        res.send('Server error. Something went wrong')
+    }
+}
 
 

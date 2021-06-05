@@ -38,6 +38,10 @@ html
             rel='stylesheet'
             href='../../css/admin/admin-orders.css'
         )
+        link(
+            rel='stylesheet'
+            href='../../css/admin/admin-newProduct.css'
+        )
         script( defer src="../../js/admin/admin.js")
         title Admin panel
     body(id="home")
@@ -52,6 +56,7 @@ html
                 div(class="header__menu")
                     div(class="header__list header__list-general")
                         a(href="/api/admin-page/dashboard" class="header__list-link") Все товары
+                        a(href="/api/admin-page/new-product" class="header__list-link") Добавить товар
                         a(href="/api/admin-page/orders" class="header__list-link") Заказы
                         a(href="/" class="header__list-link") Главная страница
                         a(href="/api/admin-page/logout" class="header__list-link header__menu-bottom") Выйти

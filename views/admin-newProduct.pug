@@ -1,0 +1,28 @@
+include admin-header
+section(class="newProduct")
+    div(class="newProduct-container")
+        form(class="newProduct-form" action="/api/admin-page/new-product" method="post")
+            div(class="newProduct-form__item")
+                label Name:
+                input(type="text", name="name")
+            div(class="newProduct-form__item")
+                label Price:
+                input(type="number", min="0" name="cost")
+            div(class="newProduct-form__item")
+                label Description:
+                textarea(name="description")
+            div(class="newProduct-form__item")
+                label Image src  (example: "/food/0-coffee/jacobsCronat.jpg"):
+                input(name="image")
+            div(class="newProduct-form__item")
+                label Subcategory:
+                input(type="number" min="0" name="subcategory")
+            div(class="newProduct-form__item") Availability:
+            div(class="newProduct-form__item")
+                label(for="available") В наличии:
+                input(type="radio" name="availability" value="true" id="available")
+            div(class="newProduct-form__item")
+                label(for="unavailable") Нет в наличии:
+                input(type="radio" name="availability" value="false" id="unavailable")
+            div(class="newProduct-form__item")
+                input(type="submit" value="Save")

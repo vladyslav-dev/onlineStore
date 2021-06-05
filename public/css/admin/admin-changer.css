@@ -16,6 +16,7 @@
     font-family : "Roboto", sans-serif;
     border-bottom: 1px solid #ccc;
     padding: 9px 15px;
+    line-height: 28px;
 }
 
 /*  make change */
@@ -31,6 +32,7 @@
     text-align: center;
     font-size: 19px;
     font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
 }
 
 .make__change-content {
@@ -40,19 +42,40 @@
 }
 
 .input__item {
-    width: 290px;
-    margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: column;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
 }
 
+.input__item > input[type="text"], .input__item > textarea {
+    height: 38px;
+    border: 2px solid rgb(136, 119, 63);
+    border-radius: 4px;
+    padding: 0 6px;
+    font-size: 17px;
+}
+
+.input__item > textarea {
+    min-height: 130px;
+}
+
+
 .input__item-radio {
+    width: 100%;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 17px;
 }
+
+.input__item-radio > input[type="submit"] {
+    width: 100%;
+}
+
 
 .input__item label {
     padding-bottom: 8px;
@@ -64,5 +87,4 @@
 }
 
 .input__item-radio input {
-  
 }

@@ -85,9 +85,7 @@
 }
 
 .subcategory__block {
-    margin: 10px;
     margin-top: 28px;
-
 }
 
 .good__block {
@@ -104,7 +102,7 @@
 
 .good__block-content {
     display: flex;
-    padding: 11px;
+    padding: 0 5px;
     cursor: pointer;
     transition: 0.2s all ease;
 }
@@ -119,6 +117,7 @@
 
 .good__image img {
     width: 100%;
+
 }
 
 .good__info {
@@ -136,6 +135,10 @@
     color: rgb(141, 141, 141);
     font-size: 14px;
     margin-right: 5px;
+}
+
+.good__info-text {
+    line-height: 24px;
 }
 
 .good__info-text.active {

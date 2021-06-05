@@ -124,6 +124,7 @@ module.exports.changeProduct = async (req, res) => {
     console.log("DESCRIPTION = ", req.body.description);
     console.log("COST = ", req.body.cost);
     console.log("AVAILABILITY = ", req.body.availability);
+    console.log('image src ', req.body.image)
 
     const new_id = req.body.id;
 
@@ -131,6 +132,7 @@ module.exports.changeProduct = async (req, res) => {
         name : req.body.name || null,
         description : req.body.description || null,
         cost : req.body.cost || null,
+        image : req.body.image || null,
         availability : req.body.availability == undefined ? null : req.body.availability
     }
 

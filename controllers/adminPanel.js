@@ -239,8 +239,6 @@ module.exports.postNewProduct = async (req, res) => {
 
         let newProduct = await Product.create(data)
 
-        await newProduct.save()
-
         let lastOrderId = await getLastOrderId(newProduct)
 
         let modifyProduct = await Product.findByIdAndUpdate(
@@ -249,6 +247,7 @@ module.exports.postNewProduct = async (req, res) => {
         )
 
         await modifyProduct.save()
+        res.redirect(`/api/admin-page/changer?id=${newProduct._id}`);
 
     } catch (err) {
         console.log(err)

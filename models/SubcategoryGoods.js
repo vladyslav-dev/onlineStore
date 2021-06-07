@@ -8,6 +8,9 @@ let subcategory = new Schema({
     ['subcategory-name'] : {
         type: String
     },
+    subcategorySrc : {
+        type : String
+    },
     image : {
         type: String
     },

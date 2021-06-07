@@ -8,6 +8,9 @@ let category = new Schema({
     ['category-name'] : {
         type: String
     },
+    categorySrc : {
+        type: String
+    },
     image : {
         type: String
     }

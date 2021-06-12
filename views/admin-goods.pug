@@ -17,7 +17,7 @@ section(class="admin__goods")
                                         a(href=`/api/admin-page/changer?id=${good['_id']}`)
                                             div(class="good__block-content") 
                                                 div(class="good__image")
-                                                    img(src=`../../images/goods-img/${good['image']}`, alt="Изображение не найдено")
+                                                    img(src=`https://vinoro-admin-panel-server.herokuapp.com${good['image']}`, alt="Изображение не найдено")
                                                 div(class="good__info")
                                                     div(class="good__info-name")
                                                         span(class="good__info-label") Название: 

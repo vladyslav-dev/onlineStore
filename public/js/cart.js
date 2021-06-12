@@ -187,7 +187,7 @@ function showCart(data) {
                         <div class="flex-content">
                             <div class="flex-content-left">
                                 <div class='cart__info-left'>
-                                    <img src="images/goods-img${data[key]['image']}">
+                                    <img src="https://vinoro-admin-panel-server.herokuapp.com${data[key]['image']}">
                                 </div>
                                 <div class="cart__info-center">
                                     <div class="cart__info-text">
@@ -296,7 +296,7 @@ function showOrder(data) {
         for (let key in cart) {
             content += `<div class="order__item">
                             <div class="order__item-image">
-                                <img src="images/goods-img${data[key]['image']}">
+                                <img src="https://vinoro-admin-panel-server.herokuapp.com${data[key]['image']}">
                             </div>
                             <div class="order__item-info">
                                 <div class="order__item-top">

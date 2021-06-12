@@ -26,8 +26,8 @@ const product = new Schema({
     availability : {
         type: Boolean
     }
-}, {collection: 'productsCollection'});
+}, {collection: 'tmpProductsCollection'});
 
 // product.plugin(autoIncrement.plugin, 'productsCollection');
 
-module.exports = mongoose.model('productsCollection', product);
+module.exports = mongoose.model('tmpProductsCollection', product);

@@ -29,11 +29,13 @@ module.exports.subcategoryPage = (req, res) => {
     })
 
     Promise.all([category, subcategory, goods]).then( (value) => {
-        res.render('subcategory', {
-            category : value[0],
-            subcategory : value[1],
-            goods : value[2]
-        })
+        () => {
+            res.render('subcategory', {
+                category : value[0],
+                subcategory : value[1],
+                goods : value[2]
+            })
+        }
     })
 
 };

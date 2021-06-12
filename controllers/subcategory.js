@@ -23,7 +23,7 @@ module.exports.subcategoryPage = (req, res) => {
     let goods = new Promise( async (resolve, reject) => {
         let dat = await Product.find({'subcategory' : req.query.id}, (err) => {
             if (err) reject(err);
-        }).sort({'order_id': 0});
+        }).sort([['availability', -1], ['order_id', 0]])
 
         resolve(dat);
     })

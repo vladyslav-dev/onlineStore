@@ -6,7 +6,16 @@ const bodyParser = require("body-parser");
 const ip = require("ip");
 console.log( ip.address() );
 
+
 const app = express();
+
+app.use(express.json());
+app.set('view engine', 'pug');
+app.use(express.static('public'));
+
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const PORT = process.env.PORT || 80;
 
 require("./server");
@@ -22,19 +31,14 @@ const contactsPageRoutes = require('./routes/contacts');
 const adminPageRoutes = require('./routes/adminPanel');
 
 // Mongo models
-const Goods = require('./models/Goods');
+//const Goods = require('./models/Goods');
 const Product = require('./models/Product')
 const User = require('./models/Users');
 const OrderList = require('./models/OrdersList');
 
 app.listen(PORT, () => console.log('Server listening on port ' + PORT));
 
-app.use(express.json());
-app.set('view engine', 'pug');
-app.use(express.static('public'));
 
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(
     session({

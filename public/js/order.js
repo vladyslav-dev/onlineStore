@@ -1,7 +1,5 @@
-
-if (window.location.pathname == '/order') {
-
-    const rules = `<div id="rule-text">
+if (window.location.pathname == "/order") {
+  const rules = `<div id="rule-text">
     <div class="modal__rule-header"><h2>Условия пользовательского соглашения</h2><img src="../images/close-icon2.png" id="close_rule"></div>
     <p><strong>Уважаемый, покупатель!</strong><br>
     Пожалуйста, перед покупкой товара внимательно прочитайте&nbsp;Пользовательское соглашение с Интернет-магазином Vinoro</p>
@@ -50,233 +48,249 @@ if (window.location.pathname == '/order') {
     8.2. Настоящее Соглашение должно рассматриваться в том виде, как оно опубликовано на Сайте, и должно применяться и толковаться в соответствии с законодательством Украины.</p>
     </div>`;
 
-    document.querySelector('footer').style.display = 'none';
+  document.querySelector("footer").style.display = "none";
 
-    let order_form_post = document.querySelector('#order-form-post'); // input post address field
-    let input_new_post = document.querySelector('#radio_1'); // radio input "Нова Пошта"
-    let input_samovivoz = document.querySelector('#radio_2'); // radio input "САМОВЫВОЗ"
-    let modal_rule = document.querySelector('.modal__rule');
-    let modal_rule_block = document.querySelector('.modal__rule-block');
-        modal_rule_block.innerHTML = rules;
+  let order_form_post = document.querySelector("#order-form-post"); // input post address field
+  let order_form_text_zp = document.querySelector("#order-form-text-zp"); // element ot show when optioned zp
+  let input_new_post = document.querySelector("#radio_1"); // radio input "Нова Пошта"
+  let input_samovivoz = document.querySelector("#radio_2"); // radio input "САМОВЫВОЗ"
+  let modal_rule = document.querySelector(".modal__rule");
+  let modal_rule_block = document.querySelector(".modal__rule-block");
+  modal_rule_block.innerHTML = rules;
 
-    document.querySelector('#close_rule').onclick = function() {
-        modal_rule.style.display = 'none';
-        modal_rule_block.style.display = 'none';
-        document.getElementsByTagName('body')[0].classList.remove('active');
+  document.querySelector("#close_rule").onclick = function () {
+    modal_rule.style.display = "none";
+    modal_rule_block.style.display = "none";
+    document.getElementsByTagName("body")[0].classList.remove("active");
+  };
+
+  input_new_post.addEventListener("change", () => {
+    order_form_post.classList.add("active");
+    order_form_post.firstChild.value = "";
+
+    order_form_text_zp.classList.remove("active");
+  });
+
+  input_samovivoz.addEventListener("change", () => {
+    order_form_post.classList.remove("active");
+    order_form_post.firstChild.value = "Я из Запорожбя";
+
+    order_form_text_zp.classList.add("active");
+  });
+
+  function showRule() {
+    modal_rule.style.display = "block";
+    modal_rule_block.style.display = "block";
+    document.getElementsByTagName("body")[0].classList.add("active");
+  }
+
+  let phoneInp = document.querySelector("#phone");
+
+  let maskOptions = {
+    mask: "+{38}(000)000-00-00",
+  };
+
+  IMask(phoneInp, maskOptions);
+
+  let radios1 = document.getElementsByName("radio-group"); // postName
+  let postInput = document.querySelector("#post"); // post address field
+  let payMethod = document.getElementsByName("radio-group2"); // payMethod
+  let comentTextarea = document.querySelector("#coment");
+
+  let firstName;
+  let lastName;
+  let city;
+  let mail;
+  let phone;
+  let postName;
+  let post;
+  let paymentMethod;
+  let coment;
+
+  function finishOrder() {
+    radios1.forEach((item) => {
+      if (item.checked) {
+        postName = item.value;
+        post = item.value;
+        if (item.value === "Нова Пошта") {
+          console.log(postInput.value);
+          post = postInput.value === "" ? undefined : postInput.value;
+        }
+      }
+    });
+
+    payMethod.forEach((item) => {
+      if (item.checked) {
+        paymentMethod = item.value;
+      }
+    });
+
+    coment = comentTextarea.value;
+    if (
+      firstName == undefined ||
+      lastName == undefined ||
+      city == undefined ||
+      mail == undefined ||
+      phone == undefined ||
+      postName == undefined ||
+      post == undefined ||
+      paymentMethod == undefined
+    ) {
+      console.log("canceled");
+      document.querySelector(".order__warning").style.display = "block";
+      return false;
+    } else {
+      document.querySelector(".order__warning").style.display = "none";
     }
 
-    input_new_post.addEventListener('change', () => {
-        order_form_post.classList.add('active');
-        order_form_post.firstChild.value = '';
-    })
+    const orderId = `#${Date.now()}`;
 
-    input_samovivoz.addEventListener('change', () => {
-        order_form_post.classList.remove('active');
-        order_form_post.firstChild.value = "Самовывоз";
-    })
+    moment.locale("ru");
+    const date = `${moment().format("L")}, ${moment().format("LT")}`;
 
-    function showRule() {
-        modal_rule.style.display = 'block';
-        modal_rule_block.style.display = 'block';
-        document.getElementsByTagName('body')[0].classList.add('active');
-    }
-
-    let phoneInp = document.querySelector('#phone');
-
-    let maskOptions = {
-        mask: '+{38}(000)000-00-00'
+    const dataOrder = {
+      orderId: orderId,
+      firstName: firstName,
+      lastName: lastName,
+      city: city,
+      mail: mail,
+      phone: phone,
+      postName: postName,
+      post: post,
+      paymentMethod: paymentMethod,
+      coment: coment || "Данные не указаны",
+      date: date,
+      key: JSON.parse(localStorage.getItem("cart")),
     };
 
-    IMask(phoneInp, maskOptions);
-
-    let radios1 = document.getElementsByName('radio-group'); // postName
-    let postInput = document.querySelector('#post'); // post address field
-    let payMethod = document.getElementsByName('radio-group2'); // payMethod
-    let comentTextarea = document.querySelector('#coment');
-
-    let firstName;
-    let lastName;
-    let city;
-    let mail;
-    let phone;
-    let postName;
-    let post;
-    let paymentMethod;
-    let coment;
-
-    function finishOrder() {
-
-        radios1.forEach(item => {
-            if(item.checked) {
-                postName = item.value;
-                if (item.value == "Самовывоз") {
-                    postInput = item.value;
-                    post = postInput;
-                }
-            }
-        })
-
-        payMethod.forEach(item => {
-            if(item.checked) {
-                paymentMethod = item.value;
-            }
-        })
-        
-        coment = comentTextarea.value;
-
-        if(firstName == undefined || lastName == undefined || city == undefined || mail == undefined || phone == undefined || postName == undefined || post == undefined || paymentMethod == undefined) {
-            console.log('canceled');
-            document.querySelector('.order__warning').style.display = 'block';
-            return false;
+    fetch("/finish-order", {
+      method: "POST",
+      body: JSON.stringify(dataOrder),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (body) {
+        if (body == 1) {
+          console.log("success");
+          showCheck(dataOrder);
         } else {
-            document.querySelector('.order__warning').style.display = 'none';
+          console.log("something went wrong");
         }
+      });
+  }
 
-        const orderId = `#${Date.now()}`;
-        
-        moment.locale('ru');  
-        const date = `${moment().format('L')}, ${moment().format('LT')}`;
-
-        const dataOrder = {
-            'orderId' : orderId,
-            'firstName' : firstName,
-            'lastName' : lastName,
-            'city' : city,
-            'mail': mail,
-            'phone': phone,
-            'postName' : postName,
-            'post' : post,
-            'paymentMethod': paymentMethod,
-            'coment' : coment || 'Данные не указаны',
-            'date': date,
-            'key' : JSON.parse(localStorage.getItem('cart'))
-        }
-
-
-        fetch('/finish-order', {
-            method: 'POST',
-            body : JSON.stringify(dataOrder),
-            headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json'
-            }
-        }).then(function(response) {
-            return response.text();
-        }).then(function(body) {
-            if(body == 1) {
-            console.log('success');
-            showCheck(dataOrder);
-            } else {
-                console.log('something went wrong');
-            }
-        });
+  function checkInput(inp) {
+    if (inp.required) {
+      inp.classList.add("active");
+    } else {
+      inp.classList.remove("active");
     }
 
-    function checkInput(inp) {
-
-        if (inp.required) {
-            inp.classList.add('active');
-        } else {
-            inp.classList.remove('active');
-        }
-
-        if (inp.value == '') {
-            emptyField(inp);
-            return false;
-        } else {
-            switch(inp.id) {
-                case 'firstName' : if (validateFirstName(inp.value.trim())) {
-                    fillRight(inp);
-                    firstName = inp.value.trim();
-                } else {
-                    fillWrong(inp);
-                };
-                    break;
-                case 'lastName' : if (validateLasttName(inp.value.trim())) {
-                    fillRight(inp);
-                    lastName = inp.value.trim();
-                } else {
-                    fillWrong(inp);
-                };
-                    break;
-                case 'city' : if (validateCity(inp.value.trim())) {
-                    fillRight(inp);
-                    city = inp.value.trim();
-                } else {
-                    fillWrong(inp);
-                };
-                    break;
-                case 'mail' : if (validateEmail(inp.value.trim())) {
-                    fillRight(inp);
-                    mail = inp.value.trim();
-                } else {
-                    fillWrong(inp);
-                };
-                    break;
-                case 'phone' : if (validatePhone(inp.value.trim())) {
-                    fillRight(inp);
-                    phone = inp.value.trim();
-                } else {
-                    fillWrong(inp);
-                };
-                    break;
-                case 'post' : post = inp.value.trim();      
-                    break;
-            }
-        }
+    if (inp.value == "") {
+      emptyField(inp);
+      return false;
+    } else {
+      switch (inp.id) {
+        case "firstName":
+          if (validateFirstName(inp.value.trim())) {
+            fillRight(inp);
+            firstName = inp.value.trim();
+          } else {
+            fillWrong(inp);
+          }
+          break;
+        case "lastName":
+          if (validateLasttName(inp.value.trim())) {
+            fillRight(inp);
+            lastName = inp.value.trim();
+          } else {
+            fillWrong(inp);
+          }
+          break;
+        case "city":
+          if (validateCity(inp.value.trim())) {
+            fillRight(inp);
+            city = inp.value.trim();
+          } else {
+            fillWrong(inp);
+          }
+          break;
+        case "mail":
+          if (validateEmail(inp.value.trim())) {
+            fillRight(inp);
+            mail = inp.value.trim();
+          } else {
+            fillWrong(inp);
+          }
+          break;
+        case "phone":
+          if (validatePhone(inp.value.trim())) {
+            fillRight(inp);
+            phone = inp.value.trim();
+          } else {
+            fillWrong(inp);
+          }
+          break;
+        case "post":
+          post = inp.value.trim();
+          break;
+      }
     }
+  }
 
-    function validateFirstName(firstName) {
-        let pattern  = /[A-Za-zА-Яа-яЁё]/
-        return pattern.test(firstName);
-    }
+  function validateFirstName(firstName) {
+    let pattern = /[A-Za-zА-Яа-яЁё]/;
+    return pattern.test(firstName);
+  }
 
-    function validateLasttName(lastName) {
-        let pattern  = /[A-Za-zА-Яа-яЁё]/
-        return pattern.test(lastName);
-    }
+  function validateLasttName(lastName) {
+    let pattern = /[A-Za-zА-Яа-яЁё]/;
+    return pattern.test(lastName);
+  }
 
-    function validateCity(city) {
-        let pattern  = /[A-Za-zА-Яа-яЁё]/
-        return pattern.test(city);
-    }
+  function validateCity(city) {
+    let pattern = /[A-Za-zА-Яа-яЁё]/;
+    return pattern.test(city);
+  }
 
-    function validateEmail(email) {
-        let pattern  = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
-        return pattern.test(String(email).toLowerCase());
-    }
+  function validateEmail(email) {
+    let pattern = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+    return pattern.test(String(email).toLowerCase());
+  }
 
-    function validatePhone(phone) { 
-        let pattern = /^\+\d{2}\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
-        return pattern.test(phone);
-    }
+  function validatePhone(phone) {
+    let pattern = /^\+\d{2}\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
+    return pattern.test(phone);
+  }
 
-    function emptyField(param) {
-        param.nextSibling.classList.remove('active');
-        param.style.border = '1px solid #afafaf';
-        param.nextSibling.nextSibling.style.display = 'none';
-    }
+  function emptyField(param) {
+    param.nextSibling.classList.remove("active");
+    param.style.border = "1px solid #afafaf";
+    param.nextSibling.nextSibling.style.display = "none";
+  }
 
-    function fillWrong(param) {
+  function fillWrong(param) {
+    param.nextSibling.classList.add("active");
+    param.nextSibling.nextSibling.style.display = "block";
+    param.style.border = "1px solid red";
+  }
 
-        param.nextSibling.classList.add('active');
-        param.nextSibling.nextSibling.style.display = 'block';
-        param.style.border = '1px solid red';
-    }
+  function fillRight(param) {
+    param.nextSibling.nextSibling.style.display = "none";
+    param.style.border = "1px solid #afafaf";
+  }
 
-    function fillRight(param) {
+  function showCheck(data) {
+    window.localStorage.removeItem("cart");
 
-        param.nextSibling.nextSibling.style.display = 'none';
-        param.style.border = '1px solid #afafaf';
-    }
-
-    function showCheck(data) {
-
-        window.localStorage.removeItem('cart');
-        
-        let wrap =  document.querySelectorAll('.wrap')[0];
-        wrap.innerHTML = '';
-        let content = `
+    let wrap = document.querySelectorAll(".wrap")[0];
+    wrap.innerHTML = "";
+    let content = `
                         <div class="order__header"><div class="order__header-container"><div class="order__header-logo"><img src="./images/logo-footer.png"></div><div class="order__header-exit"><img src="images/exit.svg" onclick="history.back()"></div></div></div>
                         <div class="order__finish-container">
                             <div class="order__finish-header">Заказ оформлен :)</div>
@@ -333,48 +347,43 @@ if (window.location.pathname == '/order') {
                         </div>
                         `;
 
-        wrap.innerHTML = content;
-        if (data.post == 'Самовывоз') {
-            document.querySelector('#postAddress-block').remove();
-        }
-
-        
-
-        let comment_btn = document.querySelector('#order__info_comment-btn');
-
-        if (comment_btn.innerText == 'Данные не указаны') {
-            return;
-        } else {
-            comment_btn.innerText = 'Смотреть...';
-            comment_btn.classList.add('commentMore');
-
-            // modal comment window
-            let modalBack = document.querySelector('.order__comment-modal');
-            let innerModal = document.querySelector('.order__comment-innerBlock');
-            let closeModal = document.querySelector('#close-comment');
-
-            comment_btn.addEventListener('click', () => { // open img click
-                modalBack.classList.add('active');
-                innerModal.classList.add('active');
-            })
-
-            closeModal.addEventListener('click', () => { // close img click
-                modalBack.classList.remove('active');
-                innerModal.classList.remove('active');
-            })
-
-            modalBack.addEventListener('click', () => { // close img click
-                modalBack.classList.remove('active');
-                innerModal.classList.remove('active');
-            })
-
-            document.querySelector('#commentInnerText').innerText = data.coment;
-        }
+    wrap.innerHTML = content;
+    if (data.post == "Самовывоз") {
+      document.querySelector("#postAddress-block").remove();
     }
+
+    let comment_btn = document.querySelector("#order__info_comment-btn");
+
+    if (comment_btn.innerText == "Данные не указаны") {
+      return;
+    } else {
+      comment_btn.innerText = "Смотреть...";
+      comment_btn.classList.add("commentMore");
+
+      // modal comment window
+      let modalBack = document.querySelector(".order__comment-modal");
+      let innerModal = document.querySelector(".order__comment-innerBlock");
+      let closeModal = document.querySelector("#close-comment");
+
+      comment_btn.addEventListener("click", () => {
+        // open img click
+        modalBack.classList.add("active");
+        innerModal.classList.add("active");
+      });
+
+      closeModal.addEventListener("click", () => {
+        // close img click
+        modalBack.classList.remove("active");
+        innerModal.classList.remove("active");
+      });
+
+      modalBack.addEventListener("click", () => {
+        // close img click
+        modalBack.classList.remove("active");
+        innerModal.classList.remove("active");
+      });
+
+      document.querySelector("#commentInnerText").innerText = data.coment;
+    }
+  }
 }
-
-
-
-
-
-

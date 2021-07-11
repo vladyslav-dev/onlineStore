@@ -115,7 +115,7 @@ function showFavoritesGoods(data) {
         content += `<div class="cart">
                         <a href="/goods?id=${data[key]['_id']}">
                             <div class="cart-content">
-                                <img src="https://vinoro-admin-panel-server.herokuapp.com${data[key]['image']}" class="cart-img">
+                                <img src="${data[key]['image']}" class="cart-img">
                                 <p class="cart-name">${data[key]['name']}</p>
                             </div>
                         </a>

@@ -25,6 +25,6 @@ const product = new Schema({
     availability : {
         type: Boolean
     }
-}, {collection: 'productsCollection'});
+}, {collection: 'productsCloudinaryCollection'});
 
-module.exports = mongoose.model('productsCollection', product);
+module.exports = mongoose.model('productsCloudinaryCollection', product);

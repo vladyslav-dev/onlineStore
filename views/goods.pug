@@ -2,7 +2,7 @@ html
     head
         meta(name="description" content="Интернет магазин Vinoro (Товары из Европы). В ассортименте Продукты питания, Алкоголь, Бытовая химия. Приятные цены. Доставка по Украние")
         meta(name="keywords" content="vinoro, продукты, алкгоголь, товары из европы, запорожье, доставка, бытовая химия, цены, цена, купить")
-        meta(property="og:image" content="https://vinoro-admin-panel-server.herokuapp.com"+goods[0]['image'])
+        meta(property="og:image" content=goods[0]['image'])
         title Интернет-магазин Vinoro — #{goods[0]['name']}
         include header-links
         link(
@@ -26,7 +26,7 @@ html
                     div(class='goods__content')
                         div(class='goods__image zoom' id='ex1')
                             img(
-                                src="https://vinoro-admin-panel-server.herokuapp.com"+goods[0]['image']
+                                src=goods[0]['image']
                                 class='product-img'
                             )
                         div(class='goods__info')
